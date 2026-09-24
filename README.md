@@ -264,4 +264,7 @@ MIT
 
 ## Workspace notes
 
-This repository is a **learning replica** of the Cursor plugins `pstack` package (reference clone under `plugins/pstack`). Local project root: `/home/dhh/Dropbox/Projects/pstack/`. Project mate: pm-pstack.
+This repository is a **learning replica** of the Cursor plugins `pstack` package.
+- Own clone: `/home/dhh/Dropbox/Projects/pstack/github_robert-flo/pstack/`
+- Upstream ref: `/home/dhh/Dropbox/Projects/pstack/github_cursor/plugins/pstack/`
+- Project mate: pm-pstack
