@@ -41,6 +41,13 @@ test("el sidebar muestra los seis grupos", async () => {
   }
 });
 
+test("la base pública es la de un project site bajo /pstack/", async () => {
+  const result = await buildAtlas();
+  assert.equal(result.status, 0, result.stderr);
+  const page = await fs.readFile(path.join(atlasRoot, "dist/index.html"), "utf8");
+  assert.match(page, /href="https:\/\/robert-flo\.github\.io\/pstack\/"/);
+});
+
 test("el build falla si falta el frontmatter obligatorio", async () => {
   await withChapter(
     "skills/sin-contrato.md",
