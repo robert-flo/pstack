@@ -26,61 +26,18 @@ Nadie lo llama con un slash command. El frontmatter trae `disable-model-invocati
 
 En una tarea de varios pasos el modo lee el índice de principios. Si el trabajo es un refactor, hay que medir un diff, o aparece la tentación de agregar una abstracción, una capa, o de enhebrar una señal nueva por tipos y schemas, el modo lee este `SKILL.md` entero. En la respuesta tiene que nombrar el principio y la decisión concreta que cambió. Citarlo sin esa decisión es name-dropping.
 
-La guía `08-principles` lo dice para los 23: no invocas el principio, usas el nombre para redirigir. Una frase alcanza porque la regla ya está leída.
+## Las seis reglas, en una línea
 
-El archivo cabe en una página. El objetivo, en sus palabras, es el **máximo resultado con el mínimo de código y complejidad**. Seis reglas, y un test.
+El texto completo de cada regla vive en el `SKILL.md` — acá va solo el mapa, para ubicar cuál aplica antes de ir a leerla:
 
-## Las seis reglas
-
-<div class="atlas-rules-grid">
-  <div class="atlas-rule-card">
-    <div class="atlas-rule-header">
-      <span class="atlas-rule-index">01</span>
-      <span class="atlas-rule-title">Prefer deletion</span>
-    </div>
-    <p class="atlas-rule-body">Ante un refactor o un "mejóralo", buscar qué quitar antes de qué agregar.</p>
-  </div>
-
-  <div class="atlas-rule-card">
-    <div class="atlas-rule-header">
-      <span class="atlas-rule-index">02</span>
-      <span class="atlas-rule-title">Maintain a flat call hierarchy</span>
-    </div>
-    <p class="atlas-rule-body">Evitar cadenas de llamadas profundas. Una interfaz rica que esconde trabajo de verdad no cuenta como cadena profunda. Si contestar una pregunta obliga a cruzar más de tres archivos o capas, aplanar.</p>
-  </div>
-
-  <div class="atlas-rule-card">
-    <div class="atlas-rule-header">
-      <span class="atlas-rule-index">03</span>
-      <span class="atlas-rule-title">Consolidate decisions</span>
-    </div>
-    <p class="atlas-rule-body">La misma decisión no se repite en varios sitios. Una fuente de verdad, y el resultado viaja como un flag simple.</p>
-  </div>
-
-  <div class="atlas-rule-card">
-    <div class="atlas-rule-header">
-      <span class="atlas-rule-index">04</span>
-      <span class="atlas-rule-title">Minimize the diff</span>
-    </div>
-    <p class="atlas-rule-body">El cambio más chico que resuelve. Menos líneas ganan a un boilerplate "elegante".</p>
-  </div>
-
-  <div class="atlas-rule-card">
-    <div class="atlas-rule-header">
-      <span class="atlas-rule-index">05</span>
-      <span class="atlas-rule-title">Question the threading</span>
-    </div>
-    <p class="atlas-rule-body">Si la tarea pide pasar una señal nueva por tipos, schemas, pipelines o capas parecidas, parar y buscar un camino más directo.</p>
-  </div>
-
-  <div class="atlas-rule-card">
-    <div class="atlas-rule-header">
-      <span class="atlas-rule-index">06</span>
-      <span class="atlas-rule-title">Sweat the small leaks</span>
-    </div>
-    <p class="atlas-rule-body">Quitar pass-throughs diminutos, fugas de representación y decisiones duplicadas antes de que se esparzan. Las fugas chicas se vuelven costo permanente de coordinación.</p>
-  </div>
-</div>
+| # | Regla | Cuándo la necesitas |
+|---|---|---|
+| 01 | **Prefer deletion** | Antes de agregar código a un "mejóralo" |
+| 02 | **Flat call hierarchy** | Contestar algo te obliga a cruzar >3 archivos |
+| 03 | **Consolidate decisions** | La misma decisión aparece en más de un sitio |
+| 04 | **Minimize the diff** | Dos soluciones resuelven lo mismo, distinto tamaño |
+| 05 | **Question the threading** | Piden pasar una señal nueva por tipos/schemas/pipelines |
+| 06 | **Sweat the small leaks** | Un pass-through o una fuga de representación se repite |
 
 <div class="atlas-test-card">
   <div class="atlas-test-header">
@@ -94,26 +51,54 @@ El archivo cabe en una página. El objetivo, en sus palabras, es el **máximo re
   </p>
 </div>
 
+## Cómo se ve en la práctica
+
+<div class="atlas-case-card">
+  <div class="atlas-case-title">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+    </svg>
+    Caso — threading (regla 05)
+  </div>
+  <p class="atlas-case-body">
+    La tarea pide que un flag <code>debugMode</code> llegue desde la config hasta un logger tres capas abajo. El camino "obvio" es agregarlo al tipo de config, al schema de validación, y a cada función intermedia que lo reenvía. Laziness Protocol para eso ahí: la pregunta correcta es si el logger puede leer el flag directo de un singleton o de contexto, sin que viaje por firma de función. El diff resultante es una línea en el logger, no cuatro archivos tocados.
+  </p>
+</div>
+
+<div class="atlas-case-card">
+  <div class="atlas-case-title">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="3 6 5 6 21 6"></polyline>
+      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+    </svg>
+    Caso — deletion (regla 01)
+  </div>
+  <p class="atlas-case-body">
+    Piden "mejorar" el manejo de errores de un endpoint. El impulso es envolver la lógica existente en un <code>try/catch</code> más granular con tipos de error custom. Antes de eso, la regla obliga a preguntar qué del manejo actual ya no se usa — típicamente hay un fallback muerto o una rama que nunca se ejecuta porque el caller ya valida antes. Sacar eso primero deja ver si el problema real necesitaba menos código, no más.
+  </p>
+</div>
+
 ## Fronteras y contraste
 
-Eso no es `principle-subtract-before-you-add`. Ese otro principio ordena una secuencia: primero quitas peso muerto, después construyes. Laziness juzga el tamaño del cambio que estás por hacer.
+Eso no es `principle-subtract-before-you-add`. Ese otro principio ordena una secuencia: primero quitas peso muerto, después construyes. Laziness juzga el tamaño del cambio que estás por hacer, no el orden de los pasos.
 
-Otros archivos lo usan como límite:
+La tensión más real es con `arena`: cuando hay dos diseños válidos para el mismo problema, `arena` pide compararlos, lo cual puede parecer lo opuesto de "el diff más chico". No lo es — Laziness Protocol decide el tamaño de cada candidato antes de que `arena` los enfrente; no autoriza saltarse la comparación cuando de verdad hay ambigüedad de diseño. `feature` es donde esto se vuelve explícito: ahí Laziness Protocol no sirve de excusa para evitar `arena` solo porque comparar toma más texto que no comparar.
 
-- **`principle-attack-the-premise`**: Manda quitar la asimetría en vez de compensarla, y apunta aquí.
-- **`principle-build-the-lever`**: Si hace falta un lever, que sea el script más chico que hace o prueba el trabajo, nunca un framework.
-- **`architect`**: Repite el corte de tres archivos en su runner, junto con `principle-minimize-reader-load`.
-- **`arena`**: Cuando dos candidatos empatan, se queda con el boundary más limpio o la API más chica.
-- **`figure-it-out`**: Trata un segundo arena sobre un diseño ya cerrado como over-engineering y lo salta.
+Otros archivos lo usan como límite más directo:
+
+- **`principle-attack-the-premise`**: manda quitar la asimetría en vez de compensarla, y apunta aquí para decidir cuánto quitar.
+- **`principle-build-the-lever`**: si hace falta un lever, que sea el script más chico que hace o prueba el trabajo, nunca un framework.
+- **`architect`**: repite el corte de tres archivos en su runner, junto con `principle-minimize-reader-load`.
+- **`figure-it-out`**: trata un segundo `arena` sobre un diseño ya cerrado como over-engineering y lo salta.
 
 ## Cuándo tiene techo
 
-Dos playbooks le ponen un techo:
+Cuatro playbooks lo limitan, cada uno por una razón distinta:
 
-- En **`prototype`**, "smallest change" y la barra de verificación se invierten: importa la velocidad, no el pulido.
-- En **`feature`**, Laziness Protocol no sirve para saltarse `arena` cuando hay varias formas válidas de implementar.
-- En **`refactoring`**, se aplica al cerrar el paso de restar: el cambio más chico que llega a la forma objetivo, y un cleanup especulativo se revierte.
-- En **`hillclimb`**, se queda con una simplificación que sostiene el número.
+- **`prototype`**: "smallest change" se invierte porque lo que se mide ahí es velocidad de aprendizaje, no costo de mantenimiento — el código se va a tirar, así que el argumento de "un humano tendrá que mantener esto" no aplica.
+- **`feature`**: no sirve para saltarse `arena` cuando hay varias formas válidas de implementar (ver arriba) — el diff chico solo es la meta correcta una vez elegido el diseño.
+- **`refactoring`**: se aplica al cerrar el paso de restar — el cambio más chico que llega a la forma objetivo — pero un cleanup especulativo (sin issue que lo pida) se revierte, porque ahí el diff mínimo es cero.
+- **`hillclimb`**: se queda con la simplificación que sostiene el número que se está optimizando; una simplificación que lo baja no cuenta, sin importar cuánto código ahorre.
 
 ## Redirección rápida
 
