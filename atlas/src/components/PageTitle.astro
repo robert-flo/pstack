@@ -1,0 +1,236 @@
+---
+const PAGE_TITLE_ID = '_top';
+
+const { entry } = Astro.locals.starlightRoute;
+const data = entry?.data || {};
+const { title, description, grupo, orden, fuente } = data;
+const hablaCon = data['habla-con'] || [];
+
+const groupIcons: Record<string, string> = {
+  skills: '⚡',
+  playbooks: '📋',
+  agents: '🤖',
+  automations: '⚙️',
+  guia: '📖',
+  raiz: '📁',
+};
+
+const icon = grupo ? groupIcons[grupo.toLowerCase()] || '📌' : '';
+---
+
+<div class="atlas-page-hero">
+  {grupo && (
+    <div class="atlas-badge-row">
+      <span class={`atlas-badge atlas-badge-${grupo.toLowerCase()}`}>
+        <span class="atlas-badge-icon">{icon}</span>
+        <span class="atlas-badge-text">{grupo.toUpperCase()}</span>
+      </span>
+      {typeof orden === 'number' && (
+        <span class="atlas-badge-orden">ORDEN #{orden}</span>
+      )}
+    </div>
+  )}
+
+  <h1 id={PAGE_TITLE_ID} class="atlas-title">{title}</h1>
+
+  {description && (
+    <p class="atlas-lead">{description}</p>
+  )}
+
+  {(fuente || hablaCon.length > 0) && (
+    <div class="atlas-hud-panel">
+      {fuente && (
+        <div class="atlas-hud-section">
+          <span class="atlas-hud-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
+            Fuente
+          </span>
+          <code class="atlas-hud-fuente">{fuente}</code>
+        </div>
+      )}
+
+      {hablaCon.length > 0 && (
+        <div class="atlas-hud-section">
+          <span class="atlas-hud-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            Habla con ({hablaCon.length})
+          </span>
+          <div class="atlas-habla-chips">
+            {hablaCon.map((slug: string) => (
+              <span class="atlas-habla-chip" title={`Relacionado con ${slug}`}>
+                {slug}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )}
+</div>
+
+<style>
+  .atlas-page-hero {
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .atlas-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .atlas-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #34d399;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
+  }
+
+  .atlas-badge-skills {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.35);
+    color: #34d399;
+  }
+
+  .atlas-badge-playbooks {
+    background: rgba(168, 85, 247, 0.12);
+    border-color: rgba(168, 85, 247, 0.35);
+    color: #c084fc;
+  }
+
+  .atlas-badge-agents {
+    background: rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.35);
+    color: #60a5fa;
+  }
+
+  .atlas-badge-automations {
+    background: rgba(245, 158, 11, 0.12);
+    border-color: rgba(245, 158, 11, 0.35);
+    color: #fbbf24;
+  }
+
+  .atlas-badge-orden {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.6rem;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-family: var(--sl-font-mono);
+    color: #94a3b8;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .atlas-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin: 0.25rem 0 0.75rem 0;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .atlas-lead {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin: 0 0 1.5rem 0;
+    font-weight: 400;
+    max-width: 65ch;
+  }
+
+  /* HUD Panel */
+  .atlas-hud-panel {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.75) 0%, rgba(15, 23, 42, 0.6) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+  }
+
+  .atlas-hud-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .atlas-hud-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    min-width: 100px;
+  }
+
+  .atlas-hud-fuente {
+    font-family: var(--sl-font-mono);
+    font-size: 0.82rem;
+    color: #38bdf8;
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.25);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+  }
+
+  .atlas-habla-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .atlas-habla-chip {
+    font-family: var(--sl-font-mono);
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    cursor: default;
+  }
+
+  .atlas-habla-chip:hover {
+    background: rgba(99, 102, 241, 0.18);
+    border-color: rgba(129, 140, 248, 0.4);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+  }
+</style>

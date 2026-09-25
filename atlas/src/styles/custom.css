@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap');
+
+:root {
+  --sl-font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --sl-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+:root[data-theme="dark"] {
+  /* Premium Dark Obsidian & Slate Palette */
+  --sl-color-accent-low: #181c3a;
+  --sl-color-accent: #6366f1;
+  --sl-color-accent-high: #818cf8;
+  
+  --sl-color-black: #080c14;
+  --sl-color-gray-6: #0d121f;
+  --sl-color-gray-5: #172033;
+  --sl-color-gray-4: #25334d;
+  --sl-color-gray-3: #64748b;
+  --sl-color-gray-2: #94a3b8;
+  --sl-color-gray-1: #e2e8f0;
+  --sl-color-white: #ffffff;
+  
+  --sl-color-bg: #080c14;
+  --sl-color-bg-nav: rgba(11, 16, 27, 0.82);
+  --sl-color-bg-sidebar: #0b101c;
+  --sl-color-bg-inline-code: rgba(99, 102, 241, 0.12);
+  --sl-color-hairline: rgba(255, 255, 255, 0.07);
+  --sl-color-hairline-light: rgba(255, 255, 255, 0.12);
+  
+  --sl-color-text: #cbd5e1;
+  --sl-color-text-accent: #818cf8;
+}
+
+/* Ambient glow & smooth background */
+body {
+  background-color: var(--sl-color-bg);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(6, 182, 212, 0.08) 0%, transparent 35%);
+  background-attachment: fixed;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism Header */
+header.header {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: var(--sl-color-bg-nav) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-title {
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 40%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-title::before {
+  content: "ATLAS";
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(6, 182, 212, 0.25));
+  border: 1px solid rgba(129, 140, 248, 0.4);
+  color: #38bdf8;
+  -webkit-text-fill-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.2);
+}
+
+/* Sidebar Beautification */
+nav.sidebar {
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--sl-color-bg-sidebar) !important;
+}
+
+.sidebar-content summary,
+.sidebar-content .top-level > li > span {
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b !important;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.sidebar-content a {
+  border-radius: 8px;
+  padding: 0.45rem 0.75rem !important;
+  margin: 0.1rem 0;
+  font-size: 0.875rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #94a3b8 !important;
+}
+
+.sidebar-content a:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: #f1f5f9 !important;
+  transform: translateX(3px);
+}
+
+.sidebar-content a[aria-current="page"] {
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.16), rgba(6, 182, 212, 0.08)) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  border-left: 2px solid #818cf8;
+  box-shadow: inset 0 0 15px rgba(99, 102, 241, 0.1);
+}
+
+/* Table of contents refinement */
+starlight-toc nav h2,
+#starlight__on-this-page {
+  font-size: 0.75rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b !important;
+  font-weight: 700 !important;
+}
+
+starlight-toc a {
+  font-size: 0.8125rem !important;
+  color: #94a3b8 !important;
+  transition: color 0.15s ease;
+}
+
+starlight-toc a:hover,
+starlight-toc a[aria-current="true"] {
+  color: #38bdf8 !important;
+}
+
+/* Markdown typography and spacing */
+.sl-markdown-content {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+}
+
+.sl-markdown-content p {
+  margin-bottom: 1.5rem;
+}
+
+.sl-markdown-content h2 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #f8fafc;
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sl-markdown-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #e2e8f0;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.sl-markdown-content strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.sl-markdown-content code:not(pre code) {
+  font-family: var(--sl-font-mono);
+  font-size: 0.85em;
+  padding: 0.2em 0.45em;
+  border-radius: 6px;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(129, 140, 248, 0.2);
+  color: #38bdf8;
+}
+
+/* Expressive Code Frame Enhancement */
+.expressive-code {
+  margin: 1.75rem 0;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+}
+
+.expressive-code .frame {
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(10, 15, 26, 0.95) !important;
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.expressive-code .header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  background: rgba(16, 24, 40, 0.7) !important;
+}
+
+/* Rules Grid and Cards for Laziness Protocol & Skills */
+.atlas-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.atlas-rule-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(20, 28, 48, 0.6) 0%, rgba(13, 19, 33, 0.7) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.35rem 1.5rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.atlas-rule-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.15), 0 0 15px rgba(6, 182, 212, 0.1);
+  background: linear-gradient(145deg, rgba(26, 36, 62, 0.7) 0%, rgba(16, 24, 42, 0.8) 100%);
+}
+
+.atlas-rule-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.atlas-rule-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(129, 140, 248, 0.35);
+  color: #a5b4fc;
+  font-family: var(--sl-font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.atlas-rule-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #f8fafc;
+  letter-spacing: -0.01em;
+}
+
+.atlas-rule-body {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 !important;
+}
+
+/* Golden Test Card */
+.atlas-test-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(30, 27, 75, 0.5) 0%, rgba(15, 23, 42, 0.75) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-left: 4px solid #f59e0b;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  box-shadow: 0 8px 30px -5px rgba(245, 158, 11, 0.1);
+}
+
+.atlas-test-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fbbf24;
+  margin-bottom: 0.5rem;
+}
+
+.atlas-test-quote {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #fef3c7;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Quote/Redirect Highlight box */
+.atlas-redirect-box {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(129, 140, 248, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.75rem 0;
+  backdrop-filter: blur(10px);
+}
+
+/* Scrollbar polish */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sl-color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
