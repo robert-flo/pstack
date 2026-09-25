@@ -3,7 +3,7 @@ const PAGE_TITLE_ID = '_top';
 
 const { entry } = Astro.locals.starlightRoute;
 const data = entry?.data || {};
-const { title, description, grupo, orden, fuente } = data;
+const { title, description, grupo, orden, fuente, familia } = data;
 const hablaCon = data['habla-con'] || [];
 
 const groupIcons: Record<string, string> = {
@@ -25,6 +25,21 @@ const icon = grupo ? groupIcons[grupo.toLowerCase()] || '📌' : '';
         <span class="atlas-badge-icon">{icon}</span>
         <span class="atlas-badge-text">{grupo.toUpperCase()}</span>
       </span>
+
+      {grupo.toLowerCase() === 'skills' && (
+        <>
+          <span class="atlas-badge-separator">/</span>
+          <span class="atlas-badge-sub">PRINCIPLES</span>
+        </>
+      )}
+
+      {familia && (
+        <>
+          <span class="atlas-badge-separator">/</span>
+          <span class="atlas-badge-familia">{familia}</span>
+        </>
+      )}
+
       {typeof orden === 'number' && (
         <span class="atlas-badge-orden">ORDEN #{orden}</span>
       )}
@@ -37,8 +52,20 @@ const icon = grupo ? groupIcons[grupo.toLowerCase()] || '📌' : '';
     <p class="atlas-lead">{description}</p>
   )}
 
-  {(fuente || hablaCon.length > 0) && (
+  {(fuente || familia || hablaCon.length > 0) && (
     <div class="atlas-hud-panel">
+      {familia && (
+        <div class="atlas-hud-section">
+          <span class="atlas-hud-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            Familia
+          </span>
+          <span class="atlas-hud-familia">{familia}</span>
+        </div>
+      )}
+
       {fuente && (
         <div class="atlas-hud-section">
           <span class="atlas-hud-label">
@@ -88,7 +115,7 @@ const icon = grupo ? groupIcons[grupo.toLowerCase()] || '📌' : '';
   .atlas-badge-row {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
     margin-bottom: 1rem;
     flex-wrap: wrap;
   }
@@ -132,10 +159,44 @@ const icon = grupo ? groupIcons[grupo.toLowerCase()] || '📌' : '';
     color: #fbbf24;
   }
 
+  .atlas-badge-separator {
+    color: #475569;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .atlas-badge-sub {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.22rem 0.55rem;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
+  }
+
+  .atlas-badge-familia {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.22rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(129, 140, 248, 0.35);
+    color: #c7d2fe;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.15);
+  }
+
   .atlas-badge-orden {
     display: inline-flex;
     align-items: center;
-    padding: 0.25rem 0.6rem;
+    padding: 0.22rem 0.55rem;
     border-radius: 9999px;
     font-size: 0.72rem;
     font-weight: 700;
@@ -196,6 +257,17 @@ const icon = grupo ? groupIcons[grupo.toLowerCase()] || '📌' : '';
     letter-spacing: 0.05em;
     color: #64748b;
     min-width: 100px;
+  }
+
+  .atlas-hud-familia {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #a5b4fc;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(129, 140, 248, 0.3);
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
   }
 
   .atlas-hud-fuente {

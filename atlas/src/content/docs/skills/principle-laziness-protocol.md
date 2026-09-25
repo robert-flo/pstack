@@ -3,6 +3,7 @@ title: Laziness Protocol
 description: Bias toward deletion and the smallest change that solves the problem.
 grupo: skills
 orden: 10
+familia: The core principles
 fuente: skills/principle-laziness-protocol/SKILL.md
 habla-con:
   - poteto-mode
@@ -18,7 +19,21 @@ habla-con:
   - principle-attack-the-premise
 ---
 
-`principle-laziness-protocol` es uno de los 23 principios, y el primero del bloque Core dentro de `poteto-mode`. Existe para que el cambio no crezca más que el problema: borrar antes de agregar, y quedarse con el diff más chico que lo resuelve.
+## Jerarquía y clasificación
+
+Dentro del sistema pstack, este archivo pertenece a la jerarquía:
+
+> **Skills** › **Principles** › **The core principles**
+
+Según la guía [`08-principles`](https://github.com/cursor/plugins/blob/main/pstack/docs/guide/08-principles.md), cada uno de los 23 principios se clasifica en uno de cinco bloques:
+
+- **The core principles** (10 principios): deciden cuánto construir y cuándo repensar el diseño (*Laziness Protocol*, *Foundational Thinking*, *Redesign from First Principles*, *Attack the Premise*, *Subtract Before You Add*, *Minimize Reader Load*, *Outcome-Oriented Execution*, *Experience First*, *Exhaust the Design Space*, *Build the Lever*).
+- **The architecture principles** (6 principios): deciden dónde viven el estado, la validación y la compatibilidad (*Model the Domain*, *Boundary Discipline*, *Type System Discipline*, *Make Operations Idempotent*, *Migrate Callers Then Delete Legacy APIs*, *Separate Before Serializing Shared State*).
+- **The verification principles** (4 principios): definen qué cuenta como prueba (*Prove It Works*, *Fix Root Causes*, *Sequence Work into Verifiable Units*, *Test Behavior, Not Implementation*).
+- **The delegation principles** (2 principios): mantienen cuerdo el trabajo en paralelo (*Guard the Context Window*, *Never Block on the Human*).
+- **And one meta principle** (1 principio): convierte lecciones repetidas dos veces en un lint, check o script (*Encode Lessons in Structure*).
+
+`principle-laziness-protocol` es el primero del bloque **Core**. Existe para que el cambio no crezca más que el problema: borrar antes de agregar, y quedarse con el diff más chico que lo resuelve.
 
 ## Activación y contexto
 

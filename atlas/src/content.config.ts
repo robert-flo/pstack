@@ -35,6 +35,7 @@ export const collections = {
         orden: z.number().optional(),
         fuente: z.string().optional(),
         "habla-con": z.array(z.string()).optional(),
+        familia: z.string().optional(),
       }),
     }),
   }),
