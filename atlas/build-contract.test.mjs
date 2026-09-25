@@ -19,7 +19,7 @@ test("un capítulo válido se construye en su grupo", async () => {
   const result = await buildAtlas();
   assert.equal(result.status, 0, result.stderr);
   const page = await fs.readFile(
-    path.join(atlasRoot, "dist/skills/principle-laziness-protocol/index.html"),
+    path.join(atlasRoot, "dist/skills/principles-core/principle-laziness-protocol/index.html"),
     "utf8",
   );
   assert.match(page, /Laziness Protocol/);
