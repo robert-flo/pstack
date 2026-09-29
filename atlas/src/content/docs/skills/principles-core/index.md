@@ -10,6 +10,8 @@ habla-con:
   - 08-principles
   - principle-laziness-protocol
   - principle-foundational-thinking
+  - principle-redesign-from-first-principles
+  - principle-attack-the-premise
 ---
 
 ## Jerarquía y clasificación
@@ -34,3 +36,9 @@ Según la guía [`08-principles`](https://github.com/cursor/plugins/blob/main/ps
 
 2. **[Foundational Thinking](./principle-foundational-thinking/)** (Orden #20)  
    *Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share. Get the data structures right so downstream code becomes obvious.*
+
+3. **[Redesign From First Principles](./principle-redesign-from-first-principles/)** (Orden #30)  
+   *Apply when integrating a new requirement into an existing design. Redesign as if the requirement had been a foundational assumption from day one, instead of bolting it on.*
+
+4. **[Attack the Premise](./principle-attack-the-premise/)** (Orden #40)  
+   *Apply when two or more fixes that share one premise have failed the same gate. Take a census of which actors hold the imbalance before the next fix, then question the premise instead of writing another fix that assumes it.*
