@@ -12,6 +12,8 @@ habla-con:
   - principle-foundational-thinking
   - principle-redesign-from-first-principles
   - principle-attack-the-premise
+  - principle-subtract-before-you-add
+  - principle-minimize-reader-load
 ---
 
 ## Jerarquía y clasificación
@@ -42,3 +44,9 @@ Según la guía [`08-principles`](https://github.com/cursor/plugins/blob/main/ps
 
 4. **[Attack the Premise](./principle-attack-the-premise/)** (Orden #40)  
    *Apply when two or more fixes that share one premise have failed the same gate. Take a census of which actors hold the imbalance before the next fix, then question the premise instead of writing another fix that assumes it.*
+
+5. **[Subtract Before You Add](./principle-subtract-before-you-add/)** (Orden #50)  
+   *Apply when sequencing an addition, refactor, or rewrite. Remove dead code, redundant validators, and stub references first, then build on the simpler base.*
+
+6. **[Minimize Reader Load](./principle-minimize-reader-load/)** (Orden #60)  
+   *Apply when reviewing or shaping code that's hard to trace. Count layers between question and answer, and hidden state in the reader's head; collapse one-caller wrappers and shrink mutable scope.*

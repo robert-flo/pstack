@@ -22,8 +22,8 @@ Core:
 - [x] `skills/principle-foundational-thinking/SKILL.md`
 - [x] `skills/principle-redesign-from-first-principles/SKILL.md`
 - [x] `skills/principle-attack-the-premise/SKILL.md`
-- [ ] `skills/principle-subtract-before-you-add/SKILL.md`
-- [ ] `skills/principle-minimize-reader-load/SKILL.md`
+- [x] `skills/principle-subtract-before-you-add/SKILL.md`
+- [x] `skills/principle-minimize-reader-load/SKILL.md`
 - [ ] `skills/principle-outcome-oriented-execution/SKILL.md`
 - [ ] `skills/principle-experience-first/SKILL.md`
 - [ ] `skills/principle-exhaust-the-design-space/SKILL.md`
