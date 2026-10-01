@@ -14,6 +14,8 @@ habla-con:
   - principle-attack-the-premise
   - principle-subtract-before-you-add
   - principle-minimize-reader-load
+  - principle-outcome-oriented-execution
+  - principle-experience-first
 ---
 
 ## Jerarquía y clasificación
@@ -50,3 +52,9 @@ Según la guía [`08-principles`](https://github.com/cursor/plugins/blob/main/ps
 
 6. **[Minimize Reader Load](./principle-minimize-reader-load/)** (Orden #60)  
    *Apply when reviewing or shaping code that's hard to trace. Count layers between question and answer, and hidden state in the reader's head; collapse one-caller wrappers and shrink mutable scope.*
+
+7. **[Outcome-Oriented Execution](./principle-outcome-oriented-execution/)** (Orden #70)  
+   *Apply during planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture; don't preserve smooth intermediate states with throwaway compatibility code.*
+
+8. **[Experience First](./principle-experience-first/)** (Orden #80)  
+   *Apply when product, UX, or feature-scope tradeoffs come up. Choose user delight over implementation convenience; ship fewer polished features over more rough ones.*
