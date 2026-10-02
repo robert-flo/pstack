@@ -16,6 +16,8 @@ habla-con:
   - principle-minimize-reader-load
   - principle-outcome-oriented-execution
   - principle-experience-first
+  - principle-exhaust-the-design-space
+  - principle-build-the-lever
 ---
 
 ## Jerarquía y clasificación
@@ -58,3 +60,9 @@ Según la guía [`08-principles`](https://github.com/cursor/plugins/blob/main/ps
 
 8. **[Experience First](./principle-experience-first/)** (Orden #80)  
    *Apply when product, UX, or feature-scope tradeoffs come up. Choose user delight over implementation convenience; ship fewer polished features over more rough ones.*
+
+9. **[Exhaust the Design Space](./principle-exhaust-the-design-space/)** (Orden #90)  
+   *Apply when facing a novel UI interaction or architectural decision with no precedent in the codebase. Build 2-3 competing prototypes and compare side by side before committing.*
+
+10. **[Build the Lever](./principle-build-the-lever/)** (Orden #100)  
+   *Apply to any non-trivial work, not just bulk work: edits, migrations, analyses, checks. Build the tool that does it or proves it (codemod, script, generator, or a skill your subagents follow) instead of working by hand. The tool is the artifact a reviewer can rerun.*

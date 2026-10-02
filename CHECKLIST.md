@@ -26,8 +26,8 @@ Core:
 - [x] `skills/principle-minimize-reader-load/SKILL.md`
 - [x] `skills/principle-outcome-oriented-execution/SKILL.md`
 - [x] `skills/principle-experience-first/SKILL.md`
-- [ ] `skills/principle-exhaust-the-design-space/SKILL.md`
-- [ ] `skills/principle-build-the-lever/SKILL.md`
+- [x] `skills/principle-exhaust-the-design-space/SKILL.md`
+- [x] `skills/principle-build-the-lever/SKILL.md`
 
 Arquitectura:
 
