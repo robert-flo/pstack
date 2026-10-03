@@ -31,8 +31,8 @@ Core:
 
 Arquitectura:
 
-- [ ] `skills/principle-model-the-domain/SKILL.md`
-- [ ] `skills/principle-boundary-discipline/SKILL.md`
+- [x] `skills/principle-model-the-domain/SKILL.md`
+- [x] `skills/principle-boundary-discipline/SKILL.md`
 - [ ] `skills/principle-type-system-discipline/SKILL.md`
 - [ ] `skills/principle-make-operations-idempotent/SKILL.md`
 - [ ] `skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md`
