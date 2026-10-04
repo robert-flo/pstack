@@ -19,7 +19,7 @@ Dentro del sistema **pstack**, este índice agrupa los principios de la jerarqu�
 
 Según la guía [`08-principles`](https://github.com/cursor/plugins/blob/main/pstack/docs/guide/08-principles.md), los principios de arquitectura deciden dónde viven el estado, la validación y la compatibilidad.
 
-**Nota:** réplica en curso. Hay 2 de 6 principios replicados y documentados; el resto se agregará a este índice conforme se repliquen.
+**Nota:** réplica en curso. Hay 4 de 6 principios replicados y documentados; el resto se agregará a este índice conforme se repliquen.
 
 ---
 
@@ -30,3 +30,8 @@ Según la guía [`08-principles`](https://github.com/cursor/plugins/blob/main/ps
 
 2. **[Boundary Discipline](./principle-boundary-discipline/)** (Orden #120)  
    *Apply when wiring validation, error handling, or framework adapters. Concentrate guards at system boundaries (CLI, config, network, external APIs); trust internal types and keep business logic in pure functions.*
+3. **[Type System Discipline](./principle-type-system-discipline/)** (Orden #130)  
+   *Apply when designing types, reviewing a function signature, or writing code in any statically-typed language. Make illegal states unrepresentable, brand semantic primitives, parse external data at boundaries, refuse to lie to the compiler, exhaust variants, derive from authoritative schemas.*
+
+4. **[Make Operations Idempotent](./principle-make-operations-idempotent/)** (Orden #140)  
+   *Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs.*
