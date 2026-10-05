@@ -19,7 +19,7 @@ Dentro del sistema **pstack**, este índice agrupa los principios de la jerarqu�
 
 Según la guía [`08-principles`](https://github.com/cursor/plugins/blob/main/pstack/docs/guide/08-principles.md), los principios de arquitectura deciden dónde viven el estado, la validación y la compatibilidad.
 
-**Nota:** réplica en curso. Hay 4 de 6 principios replicados y documentados; el resto se agregará a este índice conforme se repliquen.
+**Nota:** réplica en curso. Los 6 principios están replicados y documentados.
 
 ---
 
@@ -35,3 +35,8 @@ Según la guía [`08-principles`](https://github.com/cursor/plugins/blob/main/ps
 
 4. **[Make Operations Idempotent](./principle-make-operations-idempotent/)** (Orden #140)  
    *Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs.*
+5. **[Migrate Callers Then Delete Legacy APIs](./principle-migrate-callers-then-delete-legacy-apis/)** (Orden #150)  
+   *Apply when introducing a new internal API while old callers still exist. Migrate callers and delete the old API in the same wave instead of preserving compatibility layers.*
+
+6. **[Separate Before Serializing Shared State](./principle-separate-before-serializing-shared-state/)** (Orden #160)  
+   *Apply when concurrent actors might write to the same file, branch, key, or state object. Eliminate the sharing first; serialize structurally only when one shared writer is a real invariant.*

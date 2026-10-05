@@ -35,8 +35,8 @@ Arquitectura:
 - [x] `skills/principle-boundary-discipline/SKILL.md`
 - [x] `skills/principle-type-system-discipline/SKILL.md`
 - [x] `skills/principle-make-operations-idempotent/SKILL.md`
-- [ ] `skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md`
-- [ ] `skills/principle-separate-before-serializing-shared-state/SKILL.md`
+- [x] `skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md`
+- [x] `skills/principle-separate-before-serializing-shared-state/SKILL.md`
 
 Verificación:
 
