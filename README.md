@@ -12,7 +12,7 @@ Una rutina diaria automatizada replica **dos archivos por día**, ni uno más, a
 
 1. Lee [`CHECKLIST.md`](./CHECKLIST.md) y toma los dos primeros archivos sin marcar.
 2. Copia cada archivo desde el original, idéntico byte a byte. Nada se reescribe, resume ni "mejora", ni siquiera los enlaces que todavía apuntan a archivos no replicados.
-3. Escribe la documentación en español en `atlas/src/content/docs/`, en la subcarpeta que corresponda.
+3. Escribe la documentación en español en `atlas/src/content/docs/<grupo>/<slug>.md`, una página por unidad.
 4. Verifica que la copia sea idéntica comparando el hash del blob de Git contra el original.
 5. Marca el checklist, cierra la tarea en el tablero y publica un reporte en [`reports/`](./reports/).
 
@@ -37,15 +37,18 @@ El estado real siempre vive en [`CHECKLIST.md`](./CHECKLIST.md), no en este READ
 
 ## Documentación publicada
 
-La documentación en español se publica en **https://robert-flo.github.io/pstack/**, con una página por archivo replicado. Por ejemplo, los principios core viven en `/skills/principles-core/`.
+La documentación en español se publica en **https://robert-flo.github.io/pstack/**, con una página por unidad replicada. La URL de cada página es `/<grupo>/<slug>/`; por ejemplo, el principio de laziness vive en `/skills/principle-laziness-protocol/`. El vocabulario del atlas está en [`CONTEXT.md`](./CONTEXT.md).
 
-El sitio se construye y despliega solo: cada push a `main` dispara el workflow [`deploy-atlas.yml`](./.github/workflows/deploy-atlas.yml), que instala dependencias, corre los tests de contrato, compila el sitio y lo publica en GitHub Pages. Un pull request corre el mismo build sin desplegar.
+El sitio se construye y despliega solo: un push a `main` que toca `atlas/` (o el propio workflow) dispara [`deploy-atlas.yml`](./.github/workflows/deploy-atlas.yml), que instala dependencias, corre los tests de contrato, compila el sitio y lo publica en GitHub Pages. Un push que no toca el atlas no republica. Un pull request que toca el atlas corre el mismo build sin desplegar.
+
+El build falla si un capítulo rompe el contrato del frontmatter o si un enlace interno apunta a una página que no existe. Los enlaces internos llevan la base: `/pstack/<grupo>/<slug>/`.
 
 ### Correr el sitio localmente
 
 ```bash
 cd atlas
 npm ci
+npm test       # build + tests de contrato
 npm run dev
 ```
 

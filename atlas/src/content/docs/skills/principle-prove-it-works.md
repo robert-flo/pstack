@@ -3,7 +3,6 @@ title: Prove It Works
 description: "Apply after completing a task, before declaring done. Verify against the real artifact (run the feature, read the actual value, inspect the diff), not a proxy, self-report, or 'it compiles.'"
 grupo: skills
 orden: 170
-familia: The verification principles
 fuente: skills/principle-prove-it-works/SKILL.md
 habla-con:
   - 08-principles
@@ -37,7 +36,7 @@ habla-con:
 
 ### 3. Relación con otros archivos
 
-* **[Fix Root Causes](./principle-fix-root-causes/)**: es el principio que vive justo después de este. Prove It Works detecta que algo no funciona contra el artefacto real; Fix Root Causes manda no tapar ese hallazgo con un guard o un parche de síntoma, y arreglar la causa.
+* **[Fix Root Causes](/pstack/skills/principle-fix-root-causes/)**: es el principio que vive justo después de este. Prove It Works detecta que algo no funciona contra el artefacto real; Fix Root Causes manda no tapar ese hallazgo con un guard o un parche de síntoma, y arreglar la causa.
 * **`principle-sequence-verifiable-units`** (aún no replicado, se cita sin enlace): manda trocear el trabajo en unidades que se puedan verificar una por una; este principio es la comprobación que corre sobre cada unidad.
 * **`show-me-your-work`** (aún no replicado, se cita sin enlace): la skill que este principio menciona para commitear el artefacto de verificación cuando el trabajo es grande.
 

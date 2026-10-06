@@ -3,7 +3,6 @@ title: Migrate Callers Then Delete Legacy APIs
 description: "Apply when introducing a new internal API while old callers still exist. Migrate callers and delete the old API in the same wave instead of preserving compatibility layers."
 grupo: skills
 orden: 150
-familia: The architecture principles
 fuente: skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md
 habla-con:
   - 08-principles
@@ -35,9 +34,9 @@ habla-con:
 
 ### 3. Relación con otros archivos
 
-* **[Outcome-Oriented Execution](../principles-core/principle-outcome-oriented-execution/)**: ese manda migrar el proyecto entero de una vez en vez de reescrituras por fases; este es su regla complementaria al final del camino: una vez decidida la nueva API, se terminan los callers y se borra la vieja en la misma ola.
-* **[Model the Domain](./principle-model-the-domain/)**: una API nueva suele nacer de re-modelar el dominio. Ese define el diseño; este manda terminar el trabajo: migrar a todos los callers y eliminar la API vieja, para no dejar dos rutas vivas.
-* **[Subtract Before You Add](../principles-core/principle-subtract-before-you-add/)**: borrar la API vieja es la resta que ese principio manda; conservar rutas legacy por comodidad es exactamente lo que ese prohíbe.
+* **[Outcome-Oriented Execution](/pstack/skills/principle-outcome-oriented-execution/)**: ese manda migrar el proyecto entero de una vez en vez de reescrituras por fases; este es su regla complementaria al final del camino: una vez decidida la nueva API, se terminan los callers y se borra la vieja en la misma ola.
+* **[Model the Domain](/pstack/skills/principle-model-the-domain/)**: una API nueva suele nacer de re-modelar el dominio. Ese define el diseño; este manda terminar el trabajo: migrar a todos los callers y eliminar la API vieja, para no dejar dos rutas vivas.
+* **[Subtract Before You Add](/pstack/skills/principle-subtract-before-you-add/)**: borrar la API vieja es la resta que ese principio manda; conservar rutas legacy por comodidad es exactamente lo que ese prohíbe.
 
 ---
 

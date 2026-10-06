@@ -3,7 +3,6 @@ title: Experience First
 description: "Apply when product, UX, or feature-scope tradeoffs come up. Choose user delight over implementation convenience; ship fewer polished features over more rough ones."
 grupo: skills
 orden: 80
-familia: The core principles
 fuente: skills/principle-experience-first/SKILL.md
 habla-con:
   - poteto-mode
@@ -49,9 +48,9 @@ La experiencia de los tres pesa igual, y el impacto se explica desde su punto de
 
 ### 4. Relación con otros archivos
 
-* **[Foundational Thinking](./principle-foundational-thinking/)**: es su pareja. Las bases deben servir a la experiencia: ese principio gobierna la **secuencia** del trabajo, este gobierna el **objetivo**.
-* **[Subtract Before You Add](./principle-subtract-before-you-add/)**: es cómo se cumple "entrega menos, entrega mejor". Quitar opciones es la vía más directa a una experiencia pulida.
-* **[Minimize Reader Load](./principle-minimize-reader-load/)**: es este mismo principio aplicado al colega que mantiene el código. Menos carga para el lector es mejor experiencia para un usuario real.
+* **[Foundational Thinking](/pstack/skills/principle-foundational-thinking/)**: es su pareja. Las bases deben servir a la experiencia: ese principio gobierna la **secuencia** del trabajo, este gobierna el **objetivo**.
+* **[Subtract Before You Add](/pstack/skills/principle-subtract-before-you-add/)**: es cómo se cumple "entrega menos, entrega mejor". Quitar opciones es la vía más directa a una experiencia pulida.
+* **[Minimize Reader Load](/pstack/skills/principle-minimize-reader-load/)**: es este mismo principio aplicado al colega que mantiene el código. Menos carga para el lector es mejor experiencia para un usuario real.
 
 ---
 

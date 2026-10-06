@@ -3,7 +3,6 @@ title: Fix Root Causes
 description: "Apply when debugging. Trace each symptom to its root cause and fix it there; reproduce first, ask why until you reach it, resist nil-check guards that silence crashes."
 grupo: skills
 orden: 180
-familia: The verification principles
 fuente: skills/principle-fix-root-causes/SKILL.md
 habla-con:
   - 08-principles
@@ -38,7 +37,7 @@ habla-con:
 
 ### 3. Relación con otros archivos
 
-* **[Prove It Works](./principle-prove-it-works/)**: el par del bloque. Prove It Works manda verificar contra el artefacto real; Fix Root Causes manda que, cuando esa verificación encuentra un problema, el arreglo vaya a la causa y no al síntoma. Reproducir primero es lo que hace verificable el arreglo.
+* **[Prove It Works](/pstack/skills/principle-prove-it-works/)**: el par del bloque. Prove It Works manda verificar contra el artefacto real; Fix Root Causes manda que, cuando esa verificación encuentra un problema, el arreglo vaya a la causa y no al síntoma. Reproducir primero es lo que hace verificable el arreglo.
 * **`principle-sequence-verifiable-units`** (aún no replicado, se cita sin enlace): trocear el trabajo en unidades verificables; con este principio, cada unidad que falla se depura hasta su causa antes de seguir.
 * **`08-principles`**: la guía del manual de uso donde este bloque se documenta (aún no replicada, se cita sin enlace).
 

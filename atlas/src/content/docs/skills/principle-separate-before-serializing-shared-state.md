@@ -3,7 +3,6 @@ title: Separate Before Serializing Shared State
 description: "Apply when concurrent actors might write to the same file, branch, key, or state object. Eliminate the sharing first; serialize structurally only when one shared writer is a real invariant."
 grupo: skills
 orden: 160
-familia: The architecture principles
 fuente: skills/principle-separate-before-serializing-shared-state/SKILL.md
 habla-con:
   - 08-principles
@@ -34,9 +33,9 @@ habla-con:
 
 ### 3. Relación con otros archivos
 
-* **[Make Operations Idempotent](./principle-make-operations-idempotent/)**: la otra cara de la misma moneda. La idempotencia se apoya en que cada worker escriba su propio archivo y la re-ejecución converja; la serialización estructural (lockfiles, locks con PID viejo) aparece en ambos cuando la compartición es real.
-* **[Model the Domain](./principle-model-the-domain/)**: decidir si los actores publican hechos independientes o necesitan un objeto canónico es una decisión de modelado del dominio. Ese define las estructuras; este define quién escribe dónde.
-* **[Boundary Discipline](./principle-boundary-discipline/)**: el merge en la frontera de lectura o de reporte es un borde del sistema; ese principio manda concentrar ahí la validación, no repetirla en cada worker.
+* **[Make Operations Idempotent](/pstack/skills/principle-make-operations-idempotent/)**: la otra cara de la misma moneda. La idempotencia se apoya en que cada worker escriba su propio archivo y la re-ejecución converja; la serialización estructural (lockfiles, locks con PID viejo) aparece en ambos cuando la compartición es real.
+* **[Model the Domain](/pstack/skills/principle-model-the-domain/)**: decidir si los actores publican hechos independientes o necesitan un objeto canónico es una decisión de modelado del dominio. Ese define las estructuras; este define quién escribe dónde.
+* **[Boundary Discipline](/pstack/skills/principle-boundary-discipline/)**: el merge en la frontera de lectura o de reporte es un borde del sistema; ese principio manda concentrar ahí la validación, no repetirla en cada worker.
 
 ---
 

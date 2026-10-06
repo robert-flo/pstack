@@ -3,7 +3,6 @@ title: Type System Discipline
 description: "Apply when designing types, reviewing a function signature, or writing code in any statically-typed language. Make illegal states unrepresentable, brand semantic primitives, parse external data at boundaries, refuse to lie to the compiler, exhaust variants, derive from authoritative schemas."
 grupo: skills
 orden: 130
-familia: The architecture principles
 fuente: skills/principle-type-system-discipline/SKILL.md
 habla-con:
   - 08-principles
@@ -42,9 +41,9 @@ habla-con:
 
 ### 3. Relación con otros archivos
 
-* **[Model the Domain](./principle-model-the-domain/)**: el corazón de ese principio es "hacer los estados ilegales irrepresentables"; este es el manual de cómo se hace eso en un lenguaje con tipos. Las estructuras que ese pide se construyen con los patrones de este.
-* **[Boundary Discipline](./principle-boundary-discipline/)**: este dice qué funciones de parseo deben existir (los datos externos no tienen tipo hasta parsearse); ese dice dónde viven (en las fronteras, y no en la lógica de negocio).
-* **[Make Operations Idempotent](./principle-make-operations-idempotent/)**: se complementan en el mismo espíritu de eliminar casos dependientes del estado. Este elimina los estados imposibles con el compilador; ese elimina los finales distintos cuando una operación corre dos veces.
+* **[Model the Domain](/pstack/skills/principle-model-the-domain/)**: el corazón de ese principio es "hacer los estados ilegales irrepresentables"; este es el manual de cómo se hace eso en un lenguaje con tipos. Las estructuras que ese pide se construyen con los patrones de este.
+* **[Boundary Discipline](/pstack/skills/principle-boundary-discipline/)**: este dice qué funciones de parseo deben existir (los datos externos no tienen tipo hasta parsearse); ese dice dónde viven (en las fronteras, y no en la lógica de negocio).
+* **[Make Operations Idempotent](/pstack/skills/principle-make-operations-idempotent/)**: se complementan en el mismo espíritu de eliminar casos dependientes del estado. Este elimina los estados imposibles con el compilador; ese elimina los finales distintos cuando una operación corre dos veces.
 * **`typescript-best-practices`**: el original lo señala como la skill que aterriza este principio en sintaxis concreta. Todavía no está replicada, así que se cita sin enlace.
 * **`principle-encode-lessons-in-structure`**: el original lo cita para derivar tipos de esquemas autoritativos. Todavía no está replicado, así que se cita sin enlace.
 

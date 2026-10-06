@@ -3,7 +3,6 @@ title: Exhaust the Design Space
 description: "Apply when facing a novel UI interaction or architectural decision with no precedent in the codebase. Build 2-3 competing prototypes and compare side by side before committing."
 grupo: skills
 orden: 90
-familia: The core principles
 fuente: skills/principle-exhaust-the-design-space/SKILL.md
 habla-con:
   - poteto-mode
@@ -51,10 +50,10 @@ habla-con:
 
 ### 4. Relación con otros archivos
 
-* **[Experience First](./principle-experience-first/)**: comparte la idea de prototipar antes de comprometerse. Ese principio define el objetivo (la experiencia de quien usa el trabajo); este da el método para elegir cuando el objetivo admite varias formas.
-* **[Redesign From First Principles](./principle-redesign-from-first-principles/)**: cuando un requisito nuevo obliga a rediseñar y hay más de un diseño posible desde cero, este principio pide explorar esas opciones antes de elegir.
-* **[Laziness Protocol](./principle-laziness-protocol/)**: lo equilibra. Los prototipos son desechables y mínimos; explorar tres opciones no significa construir tres productos.
-* **[Outcome-Oriented Execution](./principle-outcome-oriented-execution/)**: es su contraparte. Ese se aplica cuando el estado destino ya está claro; este, cuando todavía no lo está.
+* **[Experience First](/pstack/skills/principle-experience-first/)**: comparte la idea de prototipar antes de comprometerse. Ese principio define el objetivo (la experiencia de quien usa el trabajo); este da el método para elegir cuando el objetivo admite varias formas.
+* **[Redesign From First Principles](/pstack/skills/principle-redesign-from-first-principles/)**: cuando un requisito nuevo obliga a rediseñar y hay más de un diseño posible desde cero, este principio pide explorar esas opciones antes de elegir.
+* **[Laziness Protocol](/pstack/skills/principle-laziness-protocol/)**: lo equilibra. Los prototipos son desechables y mínimos; explorar tres opciones no significa construir tres productos.
+* **[Outcome-Oriented Execution](/pstack/skills/principle-outcome-oriented-execution/)**: es su contraparte. Ese se aplica cuando el estado destino ya está claro; este, cuando todavía no lo está.
 
 ---
 

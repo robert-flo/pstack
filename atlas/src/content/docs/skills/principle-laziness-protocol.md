@@ -3,7 +3,6 @@ title: Laziness Protocol
 description: Bias toward deletion and the smallest change that solves the problem.
 grupo: skills
 orden: 10
-familia: The core principles
 fuente: skills/principle-laziness-protocol/SKILL.md
 habla-con:
   - poteto-mode

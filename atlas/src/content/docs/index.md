@@ -6,7 +6,7 @@ description: Mapa interactivo de arquitectura, principios, skills y playbooks de
 Este atlas explica cómo está armado pstack, archivo por archivo.
 
 <div class="atlas-rules-grid">
-  <a href="/skills/principle-laziness-protocol/" class="atlas-rule-card" style="text-decoration: none;">
+  <a href="/pstack/skills/principle-laziness-protocol/" class="atlas-rule-card" style="text-decoration: none;">
     <div class="atlas-rule-header">
       <span class="atlas-rule-index">⚡</span>
       <span class="atlas-rule-title">Skills & Principios</span>
@@ -57,4 +57,8 @@ Este atlas explica cómo está armado pstack, archivo por archivo.
 
 ## Relaciones
 
-- [Laziness Protocol](/skills/principle-laziness-protocol/) lo leen `poteto-mode`, `08-principles`, `prototype`, `feature`, `refactoring`, `hillclimb`, `architect`, `arena`, `figure-it-out`, `principle-build-the-lever` y `principle-attack-the-premise`. Esas páginas todavía no existen.
+<!-- relaciones:inicio -->
+
+- [Laziness Protocol](/pstack/skills/principle-laziness-protocol/) lo leen [Build the Lever](/pstack/skills/principle-build-the-lever/), [Attack the Premise](/pstack/skills/principle-attack-the-premise/), `poteto-mode`, `08-principles`, `prototype`, `feature`, `refactoring`, `hillclimb`, `architect`, `arena` y `figure-it-out`. Las que van sin enlace todavía no tienen página.
+
+<!-- relaciones:fin -->

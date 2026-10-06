@@ -3,7 +3,6 @@ title: Attack the Premise
 description: "Apply when two or more fixes that share one premise have failed the same gate. Take a census of which actors hold the imbalance before the next fix, then question the premise instead of writing another fix that assumes it."
 grupo: skills
 orden: 40
-familia: The core principles
 fuente: skills/principle-attack-the-premise/SKILL.md
 habla-con:
   - poteto-mode
@@ -40,8 +39,8 @@ habla-con:
 
 ### 3. Relación con otros archivos
 
-* **[Redesign From First Principles](./principle-redesign-from-first-principles/)**: es su contraparte. Ese rediseña un diseño alrededor de un requisito nuevo; este cuestiona un hecho que el diseño actual asume.
-* **[Laziness Protocol](./principle-laziness-protocol/)**: sostiene el paso 4. Quitar la asimetría es más barato que mantener el mecanismo que la compensa.
+* **[Redesign From First Principles](/pstack/skills/principle-redesign-from-first-principles/)**: es su contraparte. Ese rediseña un diseño alrededor de un requisito nuevo; este cuestiona un hecho que el diseño actual asume.
+* **[Laziness Protocol](/pstack/skills/principle-laziness-protocol/)**: sostiene el paso 4. Quitar la asimetría es más barato que mantener el mecanismo que la compensa.
 * **`principle-build-the-lever`** y **`principle-fix-root-causes`**: el archivo original enlaza a ambos (el censo como script re-ejecutable y la búsqueda del siguiente "por qué"). Todavía no están replicados en este repositorio, así que aquí se citan sin enlace.
 
 ---

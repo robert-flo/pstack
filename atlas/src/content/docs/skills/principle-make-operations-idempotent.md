@@ -3,7 +3,6 @@ title: Make Operations Idempotent
 description: "Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs."
 grupo: skills
 orden: 140
-familia: The architecture principles
 fuente: skills/principle-make-operations-idempotent/SKILL.md
 habla-con:
   - 08-principles
@@ -37,9 +36,9 @@ habla-con:
 
 ### 3. Relación con otros archivos
 
-* **[Model the Domain](./principle-model-the-domain/)**: la convergencia exige poder leer el estado actual (escanear el estado existente es el primer paso del patrón). Las estructuras de dominio de ese principio son las que hacen ese escaneo posible y confiable.
-* **[Outcome-Oriented Execution](../principles-core/principle-outcome-oriented-execution/)**: una migración o reescritura por fases se reinicia. Si cada fase es idempotente, el reinicio converge al estado objetivo en lugar de acumular efectos de corridas parciales.
-* **[Type System Discipline](./principle-type-system-discipline/)**: se complementan. Ese elimina los estados imposibles en tiempo de compilación; este elimina los finales distintos cuando una operación corre dos veces. Los dos atacan la misma raíz: casos que dependen de cómo quedó el estado.
+* **[Model the Domain](/pstack/skills/principle-model-the-domain/)**: la convergencia exige poder leer el estado actual (escanear el estado existente es el primer paso del patrón). Las estructuras de dominio de ese principio son las que hacen ese escaneo posible y confiable.
+* **[Outcome-Oriented Execution](/pstack/skills/principle-outcome-oriented-execution/)**: una migración o reescritura por fases se reinicia. Si cada fase es idempotente, el reinicio converge al estado objetivo en lugar de acumular efectos de corridas parciales.
+* **[Type System Discipline](/pstack/skills/principle-type-system-discipline/)**: se complementan. Ese elimina los estados imposibles en tiempo de compilación; este elimina los finales distintos cuando una operación corre dos veces. Los dos atacan la misma raíz: casos que dependen de cómo quedó el estado.
 
 ---
 
