@@ -1,12 +1,13 @@
 ---
 title: Laziness Protocol
-description: Bias toward deletion and the smallest change that solves the problem.
+description: "Apply when refactoring, evaluating diff size, or tempted to add abstractions, layers, or signal threading. Bias toward deletion and the smallest change that solves the problem."
 grupo: skills
 orden: 10
 fuente: skills/principle-laziness-protocol/SKILL.md
 habla-con:
   - poteto-mode
   - 08-principles
+  - readme
   - prototype
   - feature
   - refactoring
@@ -24,25 +25,25 @@ Dentro del sistema pstack, este archivo pertenece a la jerarquía:
 
 > **Skills** › **Principles** › **The core principles**
 
-Según la guía [`08-principles`](https://github.com/cursor/plugins/blob/main/pstack/docs/guide/08-principles.md), cada uno de los 23 principios se clasifica en uno de cinco bloques:
+Según la guía `08-principles`, cada uno de los 23 principios se clasifica en uno de cinco bloques:
 
-- **The core principles** (10 principios): deciden cuánto construir y cuándo repensar el diseño (*Laziness Protocol*, *Foundational Thinking*, *Redesign from First Principles*, *Attack the Premise*, *Subtract Before You Add*, *Minimize Reader Load*, *Outcome-Oriented Execution*, *Experience First*, *Exhaust the Design Space*, *Build the Lever*).
-- **The architecture principles** (6 principios): deciden dónde viven el estado, la validación y la compatibilidad (*Model the Domain*, *Boundary Discipline*, *Type System Discipline*, *Make Operations Idempotent*, *Migrate Callers Then Delete Legacy APIs*, *Separate Before Serializing Shared State*).
-- **The verification principles** (4 principios): definen qué cuenta como prueba (*Prove It Works*, *Fix Root Causes*, *Sequence Work into Verifiable Units*, *Test Behavior, Not Implementation*).
-- **The delegation principles** (2 principios): mantienen cuerdo el trabajo en paralelo (*Guard the Context Window*, *Never Block on the Human*).
-- **And one meta principle** (1 principio): convierte lecciones repetidas dos veces en un lint, check o script (*Encode Lessons in Structure*).
+- **The core principles** (10 principios): deciden cuánto construir y cuándo repensar el diseño ([Laziness Protocol](/pstack/skills/principle-laziness-protocol/), [Foundational Thinking](/pstack/skills/principle-foundational-thinking/), [Redesign from First Principles](/pstack/skills/principle-redesign-from-first-principles/), [Attack the Premise](/pstack/skills/principle-attack-the-premise/), [Subtract Before You Add](/pstack/skills/principle-subtract-before-you-add/), [Minimize Reader Load](/pstack/skills/principle-minimize-reader-load/), [Outcome-Oriented Execution](/pstack/skills/principle-outcome-oriented-execution/), [Experience First](/pstack/skills/principle-experience-first/), [Exhaust the Design Space](/pstack/skills/principle-exhaust-the-design-space/), [Build the Lever](/pstack/skills/principle-build-the-lever/)).
+- **The architecture principles** (6 principios): deciden dónde viven el estado, la validación y la compatibilidad ([Model the Domain](/pstack/skills/principle-model-the-domain/), [Boundary Discipline](/pstack/skills/principle-boundary-discipline/), [Type System Discipline](/pstack/skills/principle-type-system-discipline/), [Make Operations Idempotent](/pstack/skills/principle-make-operations-idempotent/), [Migrate Callers Then Delete Legacy APIs](/pstack/skills/principle-migrate-callers-then-delete-legacy-apis/), [Separate Before Serializing Shared State](/pstack/skills/principle-separate-before-serializing-shared-state/)).
+- **The verification principles** (4 principios): definen qué cuenta como prueba ([Prove It Works](/pstack/skills/principle-prove-it-works/), [Fix Root Causes](/pstack/skills/principle-fix-root-causes/), `principle-sequence-verifiable-units`, `principle-test-behavior-not-implementation`).
+- **The delegation principles** (2 principios): mantienen cuerdo el trabajo en paralelo (`principle-guard-the-context-window`, `principle-never-block-on-the-human`).
+- **And one meta principle** (1 principio): convierte lecciones repetidas dos veces en un lint, check o script (`principle-encode-lessons-in-structure`).
 
-`principle-laziness-protocol` es el primero del bloque **Core**. Existe para que el cambio no crezca más que el problema: borrar antes de agregar, y quedarse con el diff más chico que lo resuelve.
+`principle-laziness-protocol` es el primero del bloque **Core**. Existe para que el cambio no crezca más que el problema: borrar antes de agregar, y quedarse con el diff más chico que lo resuelve. El `readme` del plugin lo resume en su tabla de principios con la misma frase: "Bias toward deletion and the smallest change that solves the problem."
 
 ## Activación y contexto
 
 Nadie lo llama con un slash command. El frontmatter trae `disable-model-invocation: true`, así que la descripción no dispara el skill sola. Lo despierta `poteto-mode`.
 
-En una tarea de varios pasos el modo lee el índice de principios. Si el trabajo es un refactor, hay que medir un diff, o aparece la tentación de agregar una abstracción, una capa, o de enhebrar una señal nueva por tipos y schemas, el modo lee este `SKILL.md` entero. En la respuesta tiene que nombrar el principio y la decisión concreta que cambió. Citarlo sin esa decisión es name-dropping.
+En una tarea de varios pasos el modo lee el índice de principios. La entrada de este dice cuándo aplica: "Refactoring, sizing a diff, or tempted to add abstractions, layers, or signal threading." Si el trabajo cae ahí, el modo lee este `SKILL.md` entero, porque su índice manda: "Read the leaf skill in full for any principle you apply." En la respuesta tiene que nombrar el principio y la decisión concreta que cambió. La guía `08-principles` lo dice así: "A principle citation with no decision behind it is the tell that it name-dropped instead of applying."
 
 ## Las seis reglas, en una línea
 
-El texto completo de cada regla vive en el `SKILL.md` — acá va solo el mapa, para ubicar cuál aplica antes de ir a leerla:
+El texto completo de cada regla vive en el `SKILL.md`; acá va solo el mapa, para ubicar cuál aplica antes de ir a leerla:
 
 | # | Regla | Cuándo la necesitas |
 |---|---|---|
@@ -61,63 +62,34 @@ El texto completo de cada regla vive en el `SKILL.md` — acá va solo el mapa, 
     The Test
   </div>
   <p class="atlas-test-quote">
-    Si un humano se agotaría manteniendo el código, es una mala solución.
+    "If a human developer would find the code exhausting to maintain, it is a bad solution."
   </p>
 </div>
 
-## Cómo se ve en la práctica
-
-<div class="atlas-case-card">
-  <div class="atlas-case-title">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-    </svg>
-    Caso — threading (regla 05)
-  </div>
-  <p class="atlas-case-body">
-    La tarea pide que un flag <code>debugMode</code> llegue desde la config hasta un logger tres capas abajo. El camino "obvio" es agregarlo al tipo de config, al schema de validación, y a cada función intermedia que lo reenvía. Laziness Protocol para eso ahí: la pregunta correcta es si el logger puede leer el flag directo de un singleton o de contexto, sin que viaje por firma de función. El diff resultante es una línea en el logger, no cuatro archivos tocados.
-  </p>
-</div>
-
-<div class="atlas-case-card">
-  <div class="atlas-case-title">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="3 6 5 6 21 6"></polyline>
-      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-    </svg>
-    Caso — deletion (regla 01)
-  </div>
-  <p class="atlas-case-body">
-    Piden "mejorar" el manejo de errores de un endpoint. El impulso es envolver la lógica existente en un <code>try/catch</code> más granular con tipos de error custom. Antes de eso, la regla obliga a preguntar qué del manejo actual ya no se usa — típicamente hay un fallback muerto o una rama que nunca se ejecuta porque el caller ya valida antes. Sacar eso primero deja ver si el problema real necesitaba menos código, no más.
-  </p>
-</div>
+La prueba no mide líneas: mide el cansancio de quien va a mantener el código. Por eso cierra las seis reglas.
 
 ## Fronteras y contraste
 
-Eso no es `principle-subtract-before-you-add`. Ese otro principio ordena una secuencia: primero quitas peso muerto, después construyes. Laziness juzga el tamaño del cambio que estás por hacer, no el orden de los pasos.
+Eso no es [Subtract Before You Add](/pstack/skills/principle-subtract-before-you-add/). Ese otro principio ordena una secuencia: primero quitas peso muerto, después construyes. Laziness juzga el tamaño del cambio que estás por hacer, no el orden de los pasos. El playbook `refactoring` los usa a los dos en el mismo paso, uno detrás del otro: resta primero y después "The smallest change that reaches the target shape ships (**principle-laziness-protocol**)."
 
-La tensión más real es con `arena`: cuando hay dos diseños válidos para el mismo problema, `arena` pide compararlos, lo cual puede parecer lo opuesto de "el diff más chico". No lo es — Laziness Protocol decide el tamaño de cada candidato antes de que `arena` los enfrente; no autoriza saltarse la comparación cuando de verdad hay ambigüedad de diseño. `feature` es donde esto se vuelve explícito: ahí Laziness Protocol no sirve de excusa para evitar `arena` solo porque comparar toma más texto que no comparar.
+Con `arena` la relación es de desempate. Cuando dos candidatos quedan parejos, `arena` elige la base así: "Prefer the cleaner boundary or smaller API when two feel tied, per the Laziness Protocol." El principio no sustituye la comparación; decide entre candidatos que ya se compararon.
 
 Otros archivos lo usan como límite más directo:
 
-- **`principle-attack-the-premise`**: manda quitar la asimetría en vez de compensarla, y apunta aquí para decidir cuánto quitar.
-- **`principle-build-the-lever`**: si hace falta un lever, que sea el script más chico que hace o prueba el trabajo, nunca un framework.
-- **`architect`**: repite el corte de tres archivos en su runner, junto con `principle-minimize-reader-load`.
-- **`figure-it-out`**: trata un segundo `arena` sobre un diseño ya cerrado como over-engineering y lo salta.
+- **[Attack the Premise](/pstack/skills/principle-attack-the-premise/)**: manda "Remove the asymmetry instead of compensating for it", y apunta aquí para justificarlo.
+- **[Build the Lever](/pstack/skills/principle-build-the-lever/)**: si hace falta un lever, "build the smallest script that does or proves the job, never a framework."
+- **`architect`**: su runner repite el corte de tres archivos, "per the **laziness-protocol** and **minimize-reader-load** principle skills", junto con [Minimize Reader Load](/pstack/skills/principle-minimize-reader-load/).
+- **`figure-it-out`**: trata un segundo `arena` sobre un diseño ya cerrado como over-engineering y lo salta: "A second arena over a settled design is over-engineering."
 
 ## Cuándo tiene techo
 
 Cuatro playbooks lo limitan, cada uno por una razón distinta:
 
-- **`prototype`**: "smallest change" se invierte porque lo que se mide ahí es velocidad de aprendizaje, no costo de mantenimiento — el código se va a tirar, así que el argumento de "un humano tendrá que mantener esto" no aplica.
-- **`feature`**: no sirve para saltarse `arena` cuando hay varias formas válidas de implementar (ver arriba) — el diff chico solo es la meta correcta una vez elegido el diseño.
-- **`refactoring`**: se aplica al cerrar el paso de restar — el cambio más chico que llega a la forma objetivo — pero un cleanup especulativo (sin issue que lo pida) se revierte, porque ahí el diff mínimo es cero.
-- **`hillclimb`**: se queda con la simplificación que sostiene el número que se está optimizando; una simplificación que lo baja no cuenta, sin importar cuánto código ahorre.
+- **`prototype`**: es "The one playbook where the Laziness Protocol's \"smallest change\" and the verification bar invert." Ahí manda la velocidad de aprendizaje: el prototipo se tira, así que el costo de mantenerlo no cuenta.
+- **`feature`**: cuando la implementación admite varias formas válidas, delegar por `arena` es obligatorio, y "Laziness Protocol does not override it (the gain is review separation, not lines saved)." El diff chico solo es la meta una vez elegido el diseño.
+- **`refactoring`**: se aplica al cerrar el paso de restar, con el cambio más chico que llega a la forma objetivo. Un cleanup especulativo no se salva por ser chico: "A speculative cleanup that \"might help\" gets reverted."
+- **`hillclimb`**: "Correctness and simplicity outrank the number." Se queda con la simplificación que sostiene el número: "keep a simplification that holds the number."
 
 ## Redirección rápida
 
-Para redirigir a mitad de tarea, el nombre basta:
-
-```text
-use laziness protocol. delete the wrapper instead of adding another layer.
-```
+La guía `08-principles` explica cómo se usa a mitad de tarea: "You don't invoke principles. You use their names to steer." Nombrar Laziness Protocol en un mensaje basta para que el agente vuelva a la regla que ya leyó.
