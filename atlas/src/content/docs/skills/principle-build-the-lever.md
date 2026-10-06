@@ -3,7 +3,6 @@ title: Build the Lever
 description: "Apply to any non-trivial work, not just bulk work: edits, migrations, analyses, checks. Build the tool that does it or proves it (codemod, script, generator, or a skill your subagents follow) instead of working by hand. The tool is the artifact a reviewer can rerun."
 grupo: skills
 orden: 100
-familia: The core principles
 fuente: skills/principle-build-the-lever/SKILL.md
 habla-con:
   - poteto-mode
@@ -40,9 +39,9 @@ habla-con:
 
 ### 3. Relación con otros archivos
 
-* **[Laziness Protocol](./principle-laziness-protocol/)**: el original lo cita para fijar el tamaño de la palanca: el script más pequeño que hace o prueba el trabajo, nunca un framework.
-* **[Attack the Premise](./principle-attack-the-premise/)**: su paso de censo es una aplicación directa de este principio. El censo por actor se escribe como un script re-ejecutable, no como una cuenta a mano.
-* **[Exhaust the Design Space](./principle-exhaust-the-design-space/)**: los prototipos desechables de ese principio no son palancas; este aplica una vez que el camino está elegido y hay trabajo que ejecutar o comprobar.
+* **[Laziness Protocol](/pstack/skills/principle-laziness-protocol/)**: el original lo cita para fijar el tamaño de la palanca: el script más pequeño que hace o prueba el trabajo, nunca un framework.
+* **[Attack the Premise](/pstack/skills/principle-attack-the-premise/)**: su paso de censo es una aplicación directa de este principio. El censo por actor se escribe como un script re-ejecutable, no como una cuenta a mano.
+* **[Exhaust the Design Space](/pstack/skills/principle-exhaust-the-design-space/)**: los prototipos desechables de ese principio no son palancas; este aplica una vez que el camino está elegido y hay trabajo que ejecutar o comprobar.
 * **`principle-encode-lessons-in-structure`**: el original lo distingue explícitamente. Ese convierte una instrucción recurrente en una barrera duradera; este trata del rendimiento y la revisabilidad del trabajo que tienes delante. Todavía no está replicado, así que se cita sin enlace.
 * **`principle-prove-it-works`**: el original lo señala para cuando lo que se automatiza es la verificación misma. Todavía no está replicado, así que se cita sin enlace.
 

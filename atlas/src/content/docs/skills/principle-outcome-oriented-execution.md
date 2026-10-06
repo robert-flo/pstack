@@ -3,7 +3,6 @@ title: Outcome-Oriented Execution
 description: "Apply during planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture; don't preserve smooth intermediate states with throwaway compatibility code."
 grupo: skills
 orden: 70
-familia: The core principles
 fuente: skills/principle-outcome-oriented-execution/SKILL.md
 habla-con:
   - poteto-mode
@@ -43,9 +42,9 @@ habla-con:
 
 ### 4. Relación con otros archivos
 
-* **[Subtract Before You Add](./principle-subtract-before-you-add/)**: es su aliado natural. Converger hacia la arquitectura destino casi siempre significa borrar el puente temporal en vez de conservarlo.
-* **[Redesign From First Principles](./principle-redesign-from-first-principles/)**: define *cuál* es la arquitectura destino; este principio dice cómo llegar a ella sin ir dejando capas de compatibilidad.
-* **[Attack the Premise](./principle-attack-the-premise/)**: si al converger la misma fase falla una y otra vez el mismo *gate*, el destino declarado es la premisa que toca cuestionar.
+* **[Subtract Before You Add](/pstack/skills/principle-subtract-before-you-add/)**: es su aliado natural. Converger hacia la arquitectura destino casi siempre significa borrar el puente temporal en vez de conservarlo.
+* **[Redesign From First Principles](/pstack/skills/principle-redesign-from-first-principles/)**: define *cuál* es la arquitectura destino; este principio dice cómo llegar a ella sin ir dejando capas de compatibilidad.
+* **[Attack the Premise](/pstack/skills/principle-attack-the-premise/)**: si al converger la misma fase falla una y otra vez el mismo *gate*, el destino declarado es la premisa que toca cuestionar.
 * **`principle-prove-it-works`** y **`principle-sequence-verifiable-units`**: son el complemento de verificación de este principio (qué cuenta como prueba al cerrar cada fase). Todavía no están replicados en este repositorio, así que aquí se citan sin enlace.
 
 ---

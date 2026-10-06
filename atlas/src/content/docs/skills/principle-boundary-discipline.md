@@ -3,7 +3,6 @@ title: Boundary Discipline
 description: "Apply when wiring validation, error handling, or framework adapters. Concentrate guards at system boundaries (CLI, config, network, external APIs); trust internal types and keep business logic in pure functions."
 grupo: skills
 orden: 120
-familia: The architecture principles
 fuente: skills/principle-boundary-discipline/SKILL.md
 habla-con:
   - 08-principles
@@ -39,9 +38,9 @@ habla-con:
 
 ### 3. Relación con otros archivos
 
-* **[Model the Domain](./principle-model-the-domain/)**: se complementan. Ese define las estructuras del dominio; este define dónde se convierten los datos crudos en esas estructuras (en la frontera) y dónde ya se confía en ellas (adentro).
-* **[Minimize Reader Load](../principles-core/principle-minimize-reader-load/)**: la validación esparcida por la cadena de llamadas agrega capas y estado oculto en la cabeza del lector. Concentrarla en el borde acorta el camino entre la pregunta y la respuesta.
-* **[Outcome-Oriented Execution](../principles-core/principle-outcome-oriented-execution/)**: ese principio manda no arrastrar código de compatibilidad entre fases; este es su complemento en la superficie: no re-exportar representaciones viejas del borde hacia el mundo exterior.
+* **[Model the Domain](/pstack/skills/principle-model-the-domain/)**: se complementan. Ese define las estructuras del dominio; este define dónde se convierten los datos crudos en esas estructuras (en la frontera) y dónde ya se confía en ellas (adentro).
+* **[Minimize Reader Load](/pstack/skills/principle-minimize-reader-load/)**: la validación esparcida por la cadena de llamadas agrega capas y estado oculto en la cabeza del lector. Concentrarla en el borde acorta el camino entre la pregunta y la respuesta.
+* **[Outcome-Oriented Execution](/pstack/skills/principle-outcome-oriented-execution/)**: ese principio manda no arrastrar código de compatibilidad entre fases; este es su complemento en la superficie: no re-exportar representaciones viejas del borde hacia el mundo exterior.
 
 ---
 

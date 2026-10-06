@@ -3,7 +3,6 @@ title: Foundational Thinking
 description: "Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share. Get the data structures right so downstream code becomes obvious."
 grupo: skills
 orden: 20
-familia: The core principles
 fuente: skills/principle-foundational-thinking/SKILL.md
 habla-con:
   - poteto-mode

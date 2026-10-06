@@ -1,5 +1,6 @@
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
+import starlightLinksValidator from "starlight-links-validator";
 
 const site = process.env.ASTRO_SITE || "https://robert-flo.github.io";
 const base = process.env.ASTRO_BASE || "/pstack/";
@@ -10,6 +11,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "pstack, archivo por archivo",
+      plugins: [starlightLinksValidator()],
       locales: {
         root: { label: "Español", lang: "es" },
       },

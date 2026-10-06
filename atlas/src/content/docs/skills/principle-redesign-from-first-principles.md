@@ -3,7 +3,6 @@ title: Redesign From First Principles
 description: "Apply when integrating a new requirement into an existing design. Redesign as if the requirement had been a foundational assumption from day one, instead of bolting it on."
 grupo: skills
 orden: 30
-familia: The core principles
 fuente: skills/principle-redesign-from-first-principles/SKILL.md
 habla-con:
   - poteto-mode
@@ -38,9 +37,9 @@ El resultado es la preservación del *option value*: el diseño sigue abierto a 
 
 ### 3. Relación con otros archivos
 
-* **[Attack the Premise](./principle-attack-the-premise/)**: es el principio hermano y complementario. Este rediseña el diseño alrededor de un requisito nuevo; *Attack the Premise* cuestiona un hecho que el diseño actual da por cierto.
-* **[Laziness Protocol](./principle-laziness-protocol/)**: marca el límite. Rediseñar no es reescribir por gusto: sigue vigente el sesgo hacia el cambio más pequeño que resuelve el problema.
-* **[Foundational Thinking](./principle-foundational-thinking/)**: aporta el orden de trabajo del rediseño (primero tipos y estructuras de datos, después la lógica).
+* **[Attack the Premise](/pstack/skills/principle-attack-the-premise/)**: es el principio hermano y complementario. Este rediseña el diseño alrededor de un requisito nuevo; *Attack the Premise* cuestiona un hecho que el diseño actual da por cierto.
+* **[Laziness Protocol](/pstack/skills/principle-laziness-protocol/)**: marca el límite. Rediseñar no es reescribir por gusto: sigue vigente el sesgo hacia el cambio más pequeño que resuelve el problema.
+* **[Foundational Thinking](/pstack/skills/principle-foundational-thinking/)**: aporta el orden de trabajo del rediseño (primero tipos y estructuras de datos, después la lógica).
 
 ---
 

@@ -3,7 +3,6 @@ title: Subtract Before You Add
 description: "Apply when sequencing an addition, refactor, or rewrite. Remove dead code, redundant validators, and stub references first, then build on the simpler base."
 grupo: skills
 orden: 50
-familia: The core principles
 fuente: skills/principle-subtract-before-you-add/SKILL.md
 habla-con:
   - poteto-mode
@@ -40,9 +39,9 @@ habla-con:
 
 ### 3. Relación con otros archivos
 
-* **[Laziness Protocol](./principle-laziness-protocol/)**: es su base. Ese sesga hacia el borrado y el cambio más pequeño que resuelve el problema; este dice *cuándo* hacerlo, antes de construir.
-* **[Minimize Reader Load](./principle-minimize-reader-load/)**: es su medida. Cuando dudes de qué restar, resta lo que más carga al lector: capas de una sola llamada y estado mutable innecesario.
-* **[Redesign From First Principles](./principle-redesign-from-first-principles/)**: el paso siguiente cuando restar no alcanza. Si después de quitar lo que sobra el requisito sigue sin encajar, el problema es el diseño, no el volumen.
+* **[Laziness Protocol](/pstack/skills/principle-laziness-protocol/)**: es su base. Ese sesga hacia el borrado y el cambio más pequeño que resuelve el problema; este dice *cuándo* hacerlo, antes de construir.
+* **[Minimize Reader Load](/pstack/skills/principle-minimize-reader-load/)**: es su medida. Cuando dudes de qué restar, resta lo que más carga al lector: capas de una sola llamada y estado mutable innecesario.
+* **[Redesign From First Principles](/pstack/skills/principle-redesign-from-first-principles/)**: el paso siguiente cuando restar no alcanza. Si después de quitar lo que sobra el requisito sigue sin encajar, el problema es el diseño, no el volumen.
 
 ---
 

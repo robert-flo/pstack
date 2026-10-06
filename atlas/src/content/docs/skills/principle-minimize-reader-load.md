@@ -3,7 +3,6 @@ title: Minimize Reader Load
 description: "Apply when reviewing or shaping code that's hard to trace. Count layers between question and answer, and hidden state in the reader's head; collapse one-caller wrappers and shrink mutable scope."
 grupo: skills
 orden: 60
-familia: The core principles
 fuente: skills/principle-minimize-reader-load/SKILL.md
 habla-con:
   - poteto-mode
@@ -49,9 +48,9 @@ Los dos ejes son **independientes**: un archivo plano con 50 variables globales 
 
 ### 4. Relación con otros archivos
 
-* **[Subtract Before You Add](./principle-subtract-before-you-add/)**: es su herramienta. Este principio dice qué medir; ese dice cuándo quitarlo.
-* **[Foundational Thinking](./principle-foundational-thinking/)**: baja el eje del estado desde el inicio. Elegir bien los tipos y estructuras base evita el estado compartido que después hay que sostener al leer.
-* **[Laziness Protocol](./principle-laziness-protocol/)**: coincide en el resultado. El cambio más pequeño suele ser también el que menos carga al lector.
+* **[Subtract Before You Add](/pstack/skills/principle-subtract-before-you-add/)**: es su herramienta. Este principio dice qué medir; ese dice cuándo quitarlo.
+* **[Foundational Thinking](/pstack/skills/principle-foundational-thinking/)**: baja el eje del estado desde el inicio. Elegir bien los tipos y estructuras base evita el estado compartido que después hay que sostener al leer.
+* **[Laziness Protocol](/pstack/skills/principle-laziness-protocol/)**: coincide en el resultado. El cambio más pequeño suele ser también el que menos carga al lector.
 * **`principle-guard-the-context-window`**: el archivo original lo enlaza como el análogo de este principio para la ventana de contexto de un agente (la memoria de trabajo también es finita para las máquinas). Todavía no está replicado en este repositorio, así que aquí se cita sin enlace.
 
 ---

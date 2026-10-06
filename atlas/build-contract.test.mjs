@@ -4,22 +4,44 @@ import path from "node:path";
 import test from "node:test";
 import { atlasRoot, buildAtlas } from "./build-atlas.mjs";
 
+const docsRoot = path.join(atlasRoot, "src/content/docs");
+
 async function withChapter(relativePath, contents, run) {
-  const file = path.join(atlasRoot, "src/content/docs", relativePath);
-  await fs.mkdir(path.dirname(file), { recursive: true });
+  const file = path.join(docsRoot, relativePath);
+  const createdDir = await fs.mkdir(path.dirname(file), { recursive: true });
   await fs.writeFile(file, contents);
   try {
     await run();
   } finally {
-    await fs.rm(file, { force: true });
+    await fs.rm(createdDir ?? file, { recursive: true, force: true });
   }
 }
 
-test("un capítulo válido se construye en su grupo", async () => {
+function chapter({ grupo = "skills", orden = "10", fuente = "skills/x/SKILL.md", hablaCon = "[]", body = "Cuerpo." } = {}) {
+  return `---
+title: Capítulo de prueba
+grupo: ${grupo}
+orden: ${orden}
+fuente: ${fuente}
+habla-con: ${hablaCon}
+---
+
+${body}
+`;
+}
+
+async function assertBuildFails(relativePath, contents) {
+  await withChapter(relativePath, contents, async () => {
+    const result = await buildAtlas();
+    assert.notEqual(result.status, 0, "el build debía fallar");
+  });
+}
+
+test("un capítulo válido se construye en /<grupo>/<slug>/", async () => {
   const result = await buildAtlas();
   assert.equal(result.status, 0, result.stderr);
   const page = await fs.readFile(
-    path.join(atlasRoot, "dist/skills/principles-core/principle-laziness-protocol/index.html"),
+    path.join(atlasRoot, "dist/skills/principle-laziness-protocol/index.html"),
     "utf8",
   );
   assert.match(page, /Laziness Protocol/);
@@ -30,6 +52,14 @@ test("la portada muestra la introducción", async () => {
   assert.equal(result.status, 0, result.stderr);
   const page = await fs.readFile(path.join(atlasRoot, "dist/index.html"), "utf8");
   assert.match(page, /Este atlas explica cómo está armado pstack, archivo por archivo/);
+});
+
+test("la portada marca el inicio y el fin del bloque Relaciones", async () => {
+  const source = await fs.readFile(path.join(docsRoot, "index.md"), "utf8");
+  const inicio = source.indexOf("<!-- relaciones:inicio -->");
+  const fin = source.indexOf("<!-- relaciones:fin -->");
+  assert.ok(inicio > source.indexOf("## Relaciones"), "falta el marcador de inicio tras el encabezado");
+  assert.ok(fin > inicio, "falta el marcador de fin después del de inicio");
 });
 
 test("el sidebar muestra los seis grupos", async () => {
@@ -49,7 +79,7 @@ test("la base pública es la de un project site bajo /pstack/", async () => {
 });
 
 test("el build falla si falta el frontmatter obligatorio", async () => {
-  await withChapter(
+  await assertBuildFails(
     "skills/sin-contrato.md",
     `---
 title: Sin contrato
@@ -57,69 +87,62 @@ title: Sin contrato
 
 Cuerpo.
 `,
-    async () => {
-      const result = await buildAtlas();
-      assert.notEqual(result.status, 0);
-    },
   );
 });
 
 test("el build falla si grupo no coincide con la carpeta", async () => {
-  await withChapter(
-    "skills/grupo-ajeno.md",
-    `---
-title: Grupo ajeno
-grupo: agents
-orden: 10
-fuente: agents/alguien.md
-habla-con: []
----
+  await assertBuildFails("skills/grupo-ajeno.md", chapter({ grupo: "agents" }));
+});
 
-Cuerpo.
-`,
-    async () => {
-      const result = await buildAtlas();
-      assert.notEqual(result.status, 0);
-    },
-  );
+test("el build falla si grupo no es uno de los seis", async () => {
+  await assertBuildFails("principios/grupo-inventado.md", chapter({ grupo: "principios" }));
+});
+
+test("el build falla si el capítulo no vive en <grupo>/<slug>", async () => {
+  await assertBuildFails("skills/anidado/capitulo-anidado.md", chapter());
 });
 
 test("el build falla si orden no es un número", async () => {
-  await withChapter(
-    "skills/orden-texto.md",
-    `---
-title: Orden texto
-grupo: skills
-orden: primero
-fuente: skills/orden-texto.md
-habla-con: []
----
+  await assertBuildFails("skills/orden-texto.md", chapter({ orden: "primero" }));
+});
 
-Cuerpo.
-`,
-    async () => {
-      const result = await buildAtlas();
-      assert.notEqual(result.status, 0);
-    },
+test("el build falla si orden no va de 10 en 10", async () => {
+  await assertBuildFails("skills/orden-suelto.md", chapter({ orden: "15" }));
+});
+
+test("el build falla si habla-con no es una lista", async () => {
+  await assertBuildFails("skills/habla-texto.md", chapter({ hablaCon: "principle-laziness-protocol" }));
+});
+
+test("el build falla si habla-con tiene algo que no es un slug", async () => {
+  await assertBuildFails("skills/habla-ruta.md", chapter({ hablaCon: "[skills/Laziness Protocol.md]" }));
+});
+
+test("el build falla si fuente no es texto", async () => {
+  await assertBuildFails("skills/fuente-lista.md", chapter({ fuente: "[a, b]" }));
+});
+
+test("el build falla si un enlace interno omite la base /pstack/", async () => {
+  await assertBuildFails(
+    "skills/enlace-sin-base.md",
+    chapter({ body: "Ver [Laziness Protocol](/skills/principle-laziness-protocol/)." }),
   );
 });
 
-test("el build falla si habla-con no es una lista de slugs", async () => {
-  await withChapter(
-    "skills/habla-texto.md",
-    `---
-title: Habla texto
-grupo: skills
-orden: 10
-fuente: skills/habla-texto.md
-habla-con: principle-laziness-protocol
----
+test("el build falla si un enlace interno apunta a una página que no existe", async () => {
+  await assertBuildFails(
+    "skills/enlace-roto.md",
+    chapter({ body: "Ver [Poteto Mode](/pstack/skills/poteto-mode/)." }),
+  );
+});
 
-Cuerpo.
-`,
+test("un enlace interno con base a una página existente construye", async () => {
+  await withChapter(
+    "skills/enlace-valido.md",
+    chapter({ body: "Ver [Laziness Protocol](/pstack/skills/principle-laziness-protocol/)." }),
     async () => {
       const result = await buildAtlas();
-      assert.notEqual(result.status, 0);
+      assert.equal(result.status, 0, result.stderr);
     },
   );
 });
