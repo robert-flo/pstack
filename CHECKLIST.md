@@ -40,8 +40,8 @@ Arquitectura:
 
 Verificación:
 
-- [ ] `skills/principle-prove-it-works/SKILL.md`
-- [ ] `skills/principle-fix-root-causes/SKILL.md`
+- [x] `skills/principle-prove-it-works/SKILL.md`
+- [x] `skills/principle-fix-root-causes/SKILL.md`
 - [ ] `skills/principle-sequence-verifiable-units/SKILL.md`
 - [ ] `skills/principle-test-behavior-not-implementation/SKILL.md`
 
