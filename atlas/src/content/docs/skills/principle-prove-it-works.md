@@ -37,7 +37,7 @@ habla-con:
 ### 3. Relación con otros archivos
 
 * **[Fix Root Causes](/pstack/skills/principle-fix-root-causes/)**: es el principio que vive justo después de este. Prove It Works detecta que algo no funciona contra el artefacto real; Fix Root Causes manda no tapar ese hallazgo con un guard o un parche de síntoma, y arreglar la causa.
-* **`principle-sequence-verifiable-units`** (aún no replicado, se cita sin enlace): manda trocear el trabajo en unidades que se puedan verificar una por una; este principio es la comprobación que corre sobre cada unidad.
+* **[Sequence Verifiable Units](/pstack/skills/principle-sequence-verifiable-units/)**: manda trocear el trabajo en unidades que se puedan verificar una por una; este principio es la comprobación que corre sobre cada unidad.
 * **`show-me-your-work`** (aún no replicado, se cita sin enlace): la skill que este principio menciona para commitear el artefacto de verificación cuando el trabajo es grande.
 
 ---

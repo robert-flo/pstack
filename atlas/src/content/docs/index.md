@@ -78,6 +78,8 @@ Cada capítulo y las unidades con las que habla. Los nombres sin enlace todavía
 - [Migrate Callers Then Delete Legacy APIs](/pstack/skills/principle-migrate-callers-then-delete-legacy-apis/) habla con `08-principles`, `poteto-mode`, [Outcome-Oriented Execution](/pstack/skills/principle-outcome-oriented-execution/) y [Model the Domain](/pstack/skills/principle-model-the-domain/).
 - [Separate Before Serializing Shared State](/pstack/skills/principle-separate-before-serializing-shared-state/) habla con `08-principles`, `poteto-mode`, [Model the Domain](/pstack/skills/principle-model-the-domain/) y [Make Operations Idempotent](/pstack/skills/principle-make-operations-idempotent/).
 - [Prove It Works](/pstack/skills/principle-prove-it-works/) habla con `08-principles`, `poteto-mode`, [Fix Root Causes](/pstack/skills/principle-fix-root-causes/) y `show-me-your-work`.
-- [Fix Root Causes](/pstack/skills/principle-fix-root-causes/) habla con `08-principles`, `poteto-mode`, [Prove It Works](/pstack/skills/principle-prove-it-works/) y `principle-sequence-verifiable-units`.
+- [Fix Root Causes](/pstack/skills/principle-fix-root-causes/) habla con `08-principles`, `poteto-mode`, [Prove It Works](/pstack/skills/principle-prove-it-works/) y [Sequence Verifiable Units](/pstack/skills/principle-sequence-verifiable-units/).
+- [Sequence Verifiable Units](/pstack/skills/principle-sequence-verifiable-units/) habla con `08-principles`, `poteto-mode`, [Prove It Works](/pstack/skills/principle-prove-it-works/), [Build the Lever](/pstack/skills/principle-build-the-lever/) y [Subtract Before You Add](/pstack/skills/principle-subtract-before-you-add/).
+- [Test Behavior, Not Implementation](/pstack/skills/principle-test-behavior-not-implementation/) habla con `08-principles`, `poteto-mode`, [Prove It Works](/pstack/skills/principle-prove-it-works/) y [Sequence Verifiable Units](/pstack/skills/principle-sequence-verifiable-units/).
 
 <!-- relaciones:fin -->

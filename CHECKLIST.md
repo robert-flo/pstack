@@ -42,8 +42,8 @@ Verificación:
 
 - [x] `skills/principle-prove-it-works/SKILL.md`
 - [x] `skills/principle-fix-root-causes/SKILL.md`
-- [ ] `skills/principle-sequence-verifiable-units/SKILL.md`
-- [ ] `skills/principle-test-behavior-not-implementation/SKILL.md`
+- [x] `skills/principle-sequence-verifiable-units/SKILL.md`
+- [x] `skills/principle-test-behavior-not-implementation/SKILL.md`
 
 Delegación:
 
