@@ -16,7 +16,7 @@ Vocabulario del atlas: el sitio Starlight en `atlas/` que explica, en español, 
 
 **Capítulo.** La página de una unidad. Prosa libre en español; nombres de skills, comandos y citas en inglés. Vive en `atlas/src/content/docs/<grupo>/<slug>.md` y se publica en `/<grupo>/<slug>/`. El slug es el nombre del archivo sin extensión.
 
-**Página temporal.** El capítulo provisional de un archivo de apoyo cuyo dueño todavía no tiene página. Vive en el grupo del futuro dueño. Su slug es la ruta del archivo con barras y puntos cambiados por guiones. Cuando llega el dueño, su prosa pasa a la página del dueño, la página temporal se borra y sus enlaces apuntan al dueño.
+**Página temporal.** El capítulo provisional de un archivo de apoyo cuyo dueño todavía no tiene página. Vive en el grupo del futuro dueño. Su slug es la ruta del archivo con barras y puntos cambiados por guiones, en minúsculas; así se reconoce. El primer slug de su `habla-con` es el del dueño. Cuando llega el dueño, su prosa pasa a la página del dueño, la página temporal se borra y sus enlaces apuntan al dueño.
 
 **Portada.** `atlas/src/content/docs/index.md`. No pertenece a ningún grupo. Tiene una introducción estable, que nadie reescribe, y el bloque Relaciones.
 
