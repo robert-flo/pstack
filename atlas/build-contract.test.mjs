@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
 import { atlasRoot, buildAtlas } from "./build-atlas.mjs";
+import { slug, slugTemporal } from "./src/contrato.mjs";
 
 const docsRoot = path.join(atlasRoot, "src/content/docs");
 
@@ -133,6 +134,48 @@ test("el build falla si un enlace interno apunta a una página que no existe", a
   await assertBuildFails(
     "skills/enlace-roto.md",
     chapter({ body: "Ver [Poteto Mode](/pstack/skills/poteto-mode/)." }),
+  );
+});
+
+test("el slug temporal sale de la ruta y no choca entre archivos del mismo nombre", () => {
+  const a = slugTemporal("skills/show-me-your-work/scripts/log.sh");
+  const b = slugTemporal("skills/why/scripts/log.sh");
+  assert.equal(a, "skills-show-me-your-work-scripts-log-sh");
+  assert.notEqual(a, b);
+  for (const ruta of [".gitignore", "skills/create-verification-skill/references/feature-map-example/README.md"]) {
+    assert.match(slugTemporal(ruta), slug);
+  }
+});
+
+test("una página temporal en el grupo del dueño construye", async () => {
+  const fuente = "skills/show-me-your-work/scripts/log.sh";
+  await withChapter(
+    `skills/${slugTemporal(fuente)}.md`,
+    chapter({ fuente, hablaCon: "[show-me-your-work]" }),
+    async () => {
+      const result = await buildAtlas();
+      assert.equal(result.status, 0, result.stderr);
+    },
+  );
+});
+
+test("el build falla si una página temporal no nombra a su dueño", async () => {
+  const fuente = "skills/show-me-your-work/scripts/log.sh";
+  await assertBuildFails(`skills/${slugTemporal(fuente)}.md`, chapter({ fuente, hablaCon: "[]" }));
+});
+
+test("el build falla si una página temporal convive con la página de su dueño", async () => {
+  const fuente = "skills/principle-laziness-protocol/scripts/x.sh";
+  await assertBuildFails(
+    `skills/${slugTemporal(fuente)}.md`,
+    chapter({ fuente, hablaCon: "[principle-laziness-protocol]" }),
+  );
+});
+
+test("el build falla si dos capítulos explican la misma fuente", async () => {
+  await assertBuildFails(
+    "skills/fuente-repetida.md",
+    chapter({ fuente: "skills/principle-laziness-protocol/SKILL.md" }),
   );
 });
 
