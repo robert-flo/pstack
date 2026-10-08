@@ -56,8 +56,8 @@ Meta:
 
 ## Fase 2 — Skills utilitarias independientes (31)
 
-- [ ] `skills/how/SKILL.md`
-- [ ] `skills/how/references/explorer-prompt.md`
+- [x] `skills/how/SKILL.md`
+- [x] `skills/how/references/explorer-prompt.md`
 - [ ] `skills/how/references/explainer-prompt.md`
 - [ ] `skills/why/SKILL.md`
 - [ ] `skills/why/references/epistemics.md`

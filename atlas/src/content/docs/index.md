@@ -81,5 +81,6 @@ Cada capítulo y las unidades con las que habla. Los nombres sin enlace todavía
 - [Fix Root Causes](/pstack/skills/principle-fix-root-causes/) habla con `08-principles`, `poteto-mode`, [Prove It Works](/pstack/skills/principle-prove-it-works/) y [Sequence Verifiable Units](/pstack/skills/principle-sequence-verifiable-units/).
 - [Sequence Verifiable Units](/pstack/skills/principle-sequence-verifiable-units/) habla con `08-principles`, `poteto-mode`, [Prove It Works](/pstack/skills/principle-prove-it-works/), [Build the Lever](/pstack/skills/principle-build-the-lever/) y [Subtract Before You Add](/pstack/skills/principle-subtract-before-you-add/).
 - [Test Behavior, Not Implementation](/pstack/skills/principle-test-behavior-not-implementation/) habla con `08-principles`, `poteto-mode`, [Prove It Works](/pstack/skills/principle-prove-it-works/) y [Sequence Verifiable Units](/pstack/skills/principle-sequence-verifiable-units/).
+- [How](/pstack/skills/how/) habla con `08-principles`, `poteto-mode`, `why` e `interrogate`.
 
 <!-- relaciones:fin -->
