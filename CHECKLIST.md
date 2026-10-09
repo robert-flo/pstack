@@ -58,8 +58,8 @@ Meta:
 
 - [x] `skills/how/SKILL.md`
 - [x] `skills/how/references/explorer-prompt.md`
-- [ ] `skills/how/references/explainer-prompt.md`
-- [ ] `skills/why/SKILL.md`
+- [x] `skills/how/references/explainer-prompt.md`
+- [x] `skills/why/SKILL.md`
 - [ ] `skills/why/references/epistemics.md`
 - [ ] `skills/why/references/investigator-prompt.md`
 - [ ] `skills/why/references/source-playbook.md`

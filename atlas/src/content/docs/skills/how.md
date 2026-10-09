@@ -37,13 +37,14 @@ habla-con:
 
 ### 3. Archivos de apoyo
 
+* **`references/explainer-prompt.md`** (replicado y verificado): la plantilla del prompt del explainer, el subagente que sintetiza los hallazgos de todos los explorers en una sola explicación coherente. Concilia solapamientos y contradicciones (resolviéndolas leyendo el código él mismo, con acceso de solo lectura vía Read, Grep y Glob) y produce una estructura adaptativa: Overview (1 a 2 párrafos que bastan para decidir si seguir leyendo), Key Concepts, How It Works (la sección central, en prosa con archivos y funciones concretos, con diagrama mermaid o ASCII solo cuando aclara), Where Things Live, y Gotchas. Su estilo pide lenguaje concreto ("el `UserService` llama a `AuthClient.refresh()"), explicar por qué algo es complejo en vez de solo describirlo, no rellenar lo simple, y reconocer las preguntas abiertas que los explorers marcaron en vez de esconderlas.
 * **`references/explorer-prompt.md`** (replicado y verificado): la plantilla del prompt de cada explorer. Le indica que reúna hechos y trace rutas de código sin escribir prosa, que se centre en su ángulo asignado mientras otros explorers cubren los demás cortes en paralelo, y que siga cinco pasos: encontrar el punto de entrada, trazar el flujo, mapear las abstracciones clave, encontrar las fronteras y buscar lo no obvio. Devuelve su salida en una estructura fija (Components Found, Flow, Files Read, Boundaries, Non-Obvious Things, Open Questions) y exige ser honesto con los huecos: "no pude determinar cómo X conecta con Y" es mejor que inventarlo.
 
 ---
 
 ### 4. Relación con otros archivos
 
-* **`why`** (aún no replicada, se cita sin enlace): la skill hermana para la otra mitad de la pregunta. How explica mecanismo y estructura; why explica motivación e historia.
+* **[`why`](/pstack/skills/why/)** (replicada): la skill hermana para la otra mitad de la pregunta. How explica mecanismo y estructura; why explica motivación e historia.
 * **`interrogate`** (aún no replicada, se cita sin enlace): otra skill de investigación del sistema; interrogate cuestiona calidad con rubros, mientras how construye comprensión arquitectónica.
 * **`poteto-mode`**: el orquestador al que las skills utilitarias alimentan; los spawn de explorers y explainers son subagentes Task dentro de ese motor.
 
