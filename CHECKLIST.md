@@ -60,8 +60,8 @@ Meta:
 - [x] `skills/how/references/explorer-prompt.md`
 - [x] `skills/how/references/explainer-prompt.md`
 - [x] `skills/why/SKILL.md`
-- [ ] `skills/why/references/epistemics.md`
-- [ ] `skills/why/references/investigator-prompt.md`
+- [x] `skills/why/references/epistemics.md`
+- [x] `skills/why/references/investigator-prompt.md`
 - [ ] `skills/why/references/source-playbook.md`
 - [ ] `skills/why/references/synthesizer-prompt.md`
 - [ ] `skills/why/references/sources/code-archaeology.md`
