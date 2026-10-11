@@ -62,8 +62,8 @@ Meta:
 - [x] `skills/why/SKILL.md`
 - [x] `skills/why/references/epistemics.md`
 - [x] `skills/why/references/investigator-prompt.md`
-- [ ] `skills/why/references/source-playbook.md`
-- [ ] `skills/why/references/synthesizer-prompt.md`
+- [x] `skills/why/references/source-playbook.md`
+- [x] `skills/why/references/synthesizer-prompt.md`
 - [ ] `skills/why/references/sources/code-archaeology.md`
 - [ ] `skills/why/references/sources/databricks.md`
 - [ ] `skills/why/references/sources/datadog.md`
