@@ -64,8 +64,8 @@ Meta:
 - [x] `skills/why/references/investigator-prompt.md`
 - [x] `skills/why/references/source-playbook.md`
 - [x] `skills/why/references/synthesizer-prompt.md`
-- [ ] `skills/why/references/sources/code-archaeology.md`
-- [ ] `skills/why/references/sources/databricks.md`
+- [x] `skills/why/references/sources/code-archaeology.md`
+- [x] `skills/why/references/sources/databricks.md`
 - [ ] `skills/why/references/sources/datadog.md`
 - [ ] `skills/why/references/sources/incident-postmortem.md`
 - [ ] `skills/why/references/sources/linear.md`
