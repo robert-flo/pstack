@@ -47,8 +47,8 @@ Verificación:
 
 Delegación:
 
-- [ ] `skills/principle-guard-the-context-window/SKILL.md`
-- [ ] `skills/principle-never-block-on-the-human/SKILL.md`
+- [x] `skills/principle-guard-the-context-window/SKILL.md`
+- [x] `skills/principle-never-block-on-the-human/SKILL.md`
 
 Meta:
 
