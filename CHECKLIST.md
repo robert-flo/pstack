@@ -52,7 +52,7 @@ Delegación:
 
 Meta:
 
-- [ ] `skills/principle-encode-lessons-in-structure/SKILL.md`
+- [x] `skills/principle-encode-lessons-in-structure/SKILL.md`
 
 ## Fase 2 — Skills utilitarias independientes (31)
 
@@ -66,7 +66,7 @@ Meta:
 - [x] `skills/why/references/synthesizer-prompt.md`
 - [x] `skills/why/references/sources/code-archaeology.md`
 - [x] `skills/why/references/sources/databricks.md`
-- [ ] `skills/why/references/sources/datadog.md`
+- [x] `skills/why/references/sources/datadog.md`
 - [ ] `skills/why/references/sources/incident-postmortem.md`
 - [ ] `skills/why/references/sources/linear.md`
 - [ ] `skills/why/references/sources/notion.md`

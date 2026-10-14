@@ -85,5 +85,6 @@ Cada capítulo y las unidades con las que habla. Los nombres sin enlace todavía
 - [Why](/pstack/skills/why/) habla con [How](/pstack/skills/how/), `08-principles`, `poteto-mode` e `incident-postmortem`.
 - [Guard the Context Window](/pstack/skills/principle-guard-the-context-window/) habla con `08-principles`, `poteto-mode`, `swarm` y [Laziness Protocol](/pstack/skills/principle-laziness-protocol/).
 - [Never Block on the Human](/pstack/skills/principle-never-block-on-the-human/) habla con `08-principles`, `poteto-mode`, `autonomous-run` y [Sequence Verifiable Units](/pstack/skills/principle-sequence-verifiable-units/).
+- [Encode Lessons in Structure](/pstack/skills/principle-encode-lessons-in-structure/) habla con `08-principles`, `poteto-mode`, [Guard the Context Window](/pstack/skills/principle-guard-the-context-window/) y [Never Block on the Human](/pstack/skills/principle-never-block-on-the-human/).
 
 <!-- relaciones:fin -->
