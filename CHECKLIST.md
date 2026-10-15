@@ -67,8 +67,8 @@ Meta:
 - [x] `skills/why/references/sources/code-archaeology.md`
 - [x] `skills/why/references/sources/databricks.md`
 - [x] `skills/why/references/sources/datadog.md`
-- [ ] `skills/why/references/sources/incident-postmortem.md`
-- [ ] `skills/why/references/sources/linear.md`
+- [x] `skills/why/references/sources/incident-postmortem.md`
+- [x] `skills/why/references/sources/linear.md`
 - [ ] `skills/why/references/sources/notion.md`
 - [ ] `skills/why/references/sources/sentry.md`
 - [ ] `skills/why/references/sources/slack.md`
