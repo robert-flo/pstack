@@ -69,8 +69,8 @@ Meta:
 - [x] `skills/why/references/sources/datadog.md`
 - [x] `skills/why/references/sources/incident-postmortem.md`
 - [x] `skills/why/references/sources/linear.md`
-- [ ] `skills/why/references/sources/notion.md`
-- [ ] `skills/why/references/sources/sentry.md`
+- [x] `skills/why/references/sources/notion.md`
+- [x] `skills/why/references/sources/sentry.md`
 - [ ] `skills/why/references/sources/slack.md`
 - [ ] `skills/unslop/SKILL.md`
 - [ ] `skills/bro/SKILL.md`
