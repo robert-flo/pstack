@@ -71,8 +71,8 @@ Meta:
 - [x] `skills/why/references/sources/linear.md`
 - [x] `skills/why/references/sources/notion.md`
 - [x] `skills/why/references/sources/sentry.md`
-- [ ] `skills/why/references/sources/slack.md`
-- [ ] `skills/unslop/SKILL.md`
+- [x] `skills/why/references/sources/slack.md`
+- [x] `skills/unslop/SKILL.md`
 - [ ] `skills/bro/SKILL.md`
 - [ ] `skills/technical-writing/SKILL.md`
 - [ ] `skills/tdd/SKILL.md`
