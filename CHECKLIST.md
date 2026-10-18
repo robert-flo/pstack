@@ -73,8 +73,8 @@ Meta:
 - [x] `skills/why/references/sources/sentry.md`
 - [x] `skills/why/references/sources/slack.md`
 - [x] `skills/unslop/SKILL.md`
-- [ ] `skills/bro/SKILL.md`
-- [ ] `skills/technical-writing/SKILL.md`
+- [x] `skills/bro/SKILL.md`
+- [x] `skills/technical-writing/SKILL.md`
 - [ ] `skills/tdd/SKILL.md`
 - [ ] `skills/typescript-best-practices/SKILL.md`
 - [ ] `skills/typescript-best-practices/references/patterns.md`
