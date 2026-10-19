@@ -75,8 +75,8 @@ Meta:
 - [x] `skills/unslop/SKILL.md`
 - [x] `skills/bro/SKILL.md`
 - [x] `skills/technical-writing/SKILL.md`
-- [ ] `skills/tdd/SKILL.md`
-- [ ] `skills/typescript-best-practices/SKILL.md`
+- [x] `skills/tdd/SKILL.md`
+- [x] `skills/typescript-best-practices/SKILL.md`
 - [ ] `skills/typescript-best-practices/references/patterns.md`
 - [ ] `skills/no-comments/SKILL.md`
 - [ ] `agents/comment-sicko.md` (lo consume no-comments)
