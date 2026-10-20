@@ -30,7 +30,7 @@ habla-con:
 * **Fronteras y derivación:** parsear donde los datos cruzan hacia adentro, a un tipo de dominio con nombre, y a partir de ahí confiar en los tipos (ver el principio de disciplina de fronteras); antes de declarar una interfaz nueva, buscar `Pick`/`Omit`/`Parameters`/`ReturnType`/`Awaited`/`typeof`.
 * **Ergonomía y verificación:** argumentos por objeto, no posicionales, salvo en rutas calientes (render por frame, tokenizers, parsers); no mockear lo que se puede correr: primitives reales del framework con chequeos de leak/disposables y verificar la UI en un build corriendo; telemetría estructurada con contexto suficiente para depurar desde un id, sin `console.log` en código que se envía.
 
-Los ejemplos completos viven en `references/patterns.md`, archivo de apoyo que se documenta dentro de esta página cuando entre en el checklist.
+Los ejemplos completos viven en `references/patterns.md` (ver Archivos de apoyo).
 
 ---
 
@@ -44,3 +44,9 @@ Los ejemplos completos viven en `references/patterns.md`, archivo de apoyo que s
 ### 4. Ejemplo breve
 
 En lugar de `interface Agent { id?: string; kind?: string }`, una unión discriminada (`{ kind: "human", name: string } | { kind: "bot", model: string }`) hace que el estado sin `kind` no compile; el id llega como `unknown` de la API, se valida con un schema en la frontera y de ahí en adelante el tipo `AgentId` con marca viaja verificado.
+
+---
+
+### 5. Archivos de apoyo
+
+* **`references/patterns.md`** (replicado y verificado): los ejemplos de código de cada regla de la tabla, un bloque por patrón. Cubre los tipos con marca (`AgentId = string & { readonly __brand: "AgentId" }` con guard verificador), las uniones discriminadas con su discriminante literal (`kind`, `type` o `tag`, uno solo y para siempre), el modelado constructivo (`NonEmpty<T>` por tupla variádica, `Pairs<T>`, `TimeRange` como `start` + `durationMs`, con la nota de no marcar por reflejo), el tipo total más simple con sus señales (`!`, `arr[0] as T`, el throw de "no debería pasar"), `unknown` sobre `any` con la lista completa de fuentes externas (payloads RPC, `JSON.parse`, `postMessage`, IPC, archivos, variables de entorno, resultados de base de datos), schemas antes de guards a mano (`z.infer`, `safeParse` cuando la falla es una rama esperada, sin dependencia nueva para un solo guard), la eliminación de `as` con sus cuatro causas al refactorizar (discriminante faltante, tipo fuente demasiado ancho, frontera sin tipar, genuinamente inexpresable), la jerarquía de estrechamiento del switch al cast, los type guards que verifican lo que dicen, la exhaustividad en estilo return y void, `satisfies` sobre `as`, la validación en fronteras (wire formats con `ignoreUnknownFields`, JSON persistido versionado con try/catch, sin revalidar adentro), los tipos derivados de schemas (`Pick`/`Omit` antes de interfaces nuevas) y los argumentos por objeto con su excepción en rutas calientes.

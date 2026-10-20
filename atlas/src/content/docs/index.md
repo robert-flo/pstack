@@ -92,4 +92,5 @@ Cada capítulo y las unidades con las que habla. Los nombres sin enlace todavía
 - [Never Block on the Human](/pstack/skills/principle-never-block-on-the-human/) habla con `08-principles`, `poteto-mode`, `autonomous-run` y [Sequence Verifiable Units](/pstack/skills/principle-sequence-verifiable-units/).
 - [Encode Lessons in Structure](/pstack/skills/principle-encode-lessons-in-structure/) habla con `08-principles`, `poteto-mode`, [Guard the Context Window](/pstack/skills/principle-guard-the-context-window/) y [Never Block on the Human](/pstack/skills/principle-never-block-on-the-human/).
 
+- [No Comments](/pstack/skills/no-comments/) lanza Comment Sicko y actúa solo sobre sus hallazgos aceptados; aplica [Fix Root Causes](/pstack/skills/principle-fix-root-causes/) y [Redesign From First Principles](/pstack/skills/principle-redesign-from-first-principles/), con [How](/pstack/skills/how/) y [Why](/pstack/skills/why/) como check previo de cada kill o keep delgado.
 <!-- relaciones:fin -->
