@@ -79,8 +79,8 @@ Meta:
 - [x] `skills/typescript-best-practices/SKILL.md`
 - [x] `skills/typescript-best-practices/references/patterns.md`
 - [x] `skills/no-comments/SKILL.md`
-- [ ] `agents/comment-sicko.md` (lo consume no-comments)
-- [ ] `skills/blast-radius/SKILL.md`
+- [x] `agents/comment-sicko.md` (lo consume no-comments)
+- [x] `skills/blast-radius/SKILL.md`
 - [ ] `skills/figure-it-out/SKILL.md`
 - [ ] `skills/create-verification-skill/SKILL.md`
 - [ ] `skills/create-verification-skill/references/feature-map-example/README.md`

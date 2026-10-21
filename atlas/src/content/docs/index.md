@@ -93,4 +93,6 @@ Cada capítulo y las unidades con las que habla. Los nombres sin enlace todavía
 - [Encode Lessons in Structure](/pstack/skills/principle-encode-lessons-in-structure/) habla con `08-principles`, `poteto-mode`, [Guard the Context Window](/pstack/skills/principle-guard-the-context-window/) y [Never Block on the Human](/pstack/skills/principle-never-block-on-the-human/).
 
 - [No Comments](/pstack/skills/no-comments/) lanza Comment Sicko y actúa solo sobre sus hallazgos aceptados; aplica [Fix Root Causes](/pstack/skills/principle-fix-root-causes/) y [Redesign From First Principles](/pstack/skills/principle-redesign-from-first-principles/), con [How](/pstack/skills/how/) y [Why](/pstack/skills/why/) como check previo de cada kill o keep delgado.
+- [Comment Sicko](/pstack/agents/comment-sicko/) es el cazador de comentarios muertos detrás de [No Comments](/pstack/skills/no-comments/); solo reporta y marca `MUST KILL`, y sentencia con [How](/pstack/skills/how/) y [Why](/pstack/skills/why/).
+- [Blast Radius](/pstack/skills/blast-radius/) encuentra lo que un cambio rompe más allá del diff y prueba el hecho único de su seguridad corriendo código real; cierra la tríada con [How](/pstack/skills/how/) y [Why](/pstack/skills/why/), y escribe a través de [Unslop](/pstack/skills/unslop/).
 <!-- relaciones:fin -->

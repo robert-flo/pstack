@@ -40,7 +40,7 @@ El flujo es de seis pasos, cada uno con su criterio de rechazo:
 
 ### 3. Relación con otros archivos
 
-* **Comment Sicko (`agents/comment-sicko.md`)**: el agente que hace la caza; `no-comments` es su orquestador y su filtro. Aún no replicado.
+* **[Comment Sicko](/pstack/agents/comment-sicko/)**: el agente que hace la caza; `no-comments` es su orquestador y su filtro. Le pasa solo el alcance y revisa cada bandera de su reporte antes de actuar.
 * **[Fix Root Causes](/pstack/skills/principle-fix-root-causes/)** y **[Redesign From First Principles](/pstack/skills/principle-redesign-from-first-principles/)**: guían la intención de los fixes de causa raíz, sin autorizar nunca a ensanchar el alcance.
 * **[How](/pstack/skills/how/)** y **[Why](/pstack/skills/why/)**: el check previo antes de aceptar un kill o keep delgado; si el símbolo del comentario no tiene historia clara, la ambigüedad resuelve contra el comentario.
 
