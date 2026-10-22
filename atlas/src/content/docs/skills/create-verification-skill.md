@@ -1,0 +1,46 @@
+---
+title: Create Verification Skill
+description: "Generate a project-local verification skill that drives your app the way a user does — any language, framework, or platform. Use for /create-verification-skill, \"make a control skill for this repo\", or when a project has no scripted way to prove UI/CLI/service behavior."
+grupo: skills
+orden: 320
+familia: Utilitarias independientes (fase 2)
+fuente: skills/create-verification-skill/SKILL.md
+habla-con:
+  - prove-it-works
+  - maintain-verification-skill
+---
+
+> **Regla de oro:** *A generated skill that was never executed is a draft, not a deliverable.*
+
+---
+
+### 1. Ficha Técnica y Clasificación
+
+* **Jerarquía:** `Skills` › `Utilitarias independientes` (fase 2).
+* **Qué es:** La skill generadora: produce una skill de verificación local al proyecto (`.cursor/skills/verify-<app>/`) que maneja la app como la usaría un usuario real, en cualquier lenguaje, framework o plataforma, y captura evidencia de que el comportamiento es el esperado. El público de su salida es el próximo agente: se lee en frío, a mitad de tarea, por un agente que nunca vio la app.
+* **Para qué sirve:** Dar a cualquier proyecto serio una forma con script de manejar la app real y probar comportamiento: lanzarla, ejercitar una feature como lo haría un usuario y capturar la evidencia de que funcionó.
+* **Cuándo se usa:** `/create-verification-skill`, "make a control skill for this repo", o cuando un proyecto no tiene forma con script de probar comportamiento de UI, CLI o servicio.
+
+---
+
+### 2. Qué pide exactamente
+
+* **Paso 1, entrevistar el repo, no al usuario:** responder del código y preguntar al usuario solo lo no observable. La **surface** que un usuario toca de verdad (web, CLI/TUI, desktop, API, móvil o librería; elegir la primaria y anotar el resto), el **run** local (el comando de dev documentado del propio repo, con puertos, env vars, seed data y auth), el **drive** con script (harnesses existentes primero: specs de Playwright o Cypress, scripts expect, PTY helpers, endpoints curl-ables, puerto de debug; recetas genéricas solo después: browser/CDP para web y Electron, tmux o PTY para CLI/TUI, HTTP plano para servicios), el **observe** (qué evidencia se captura: screenshots, transcripciones de terminal, cuerpos de respuesta, logs, exit codes, estado de DB) y el **isolate** (¿dos instancias pueden correr en paralelo, puertos, data dirs, perfiles? si no, la skill generada lo dice: negarse a doble-manejar una instancia compartida antes que corromper la sesión del usuario). Si el checkout no compila ni arranca como está, arreglarlo primero o reportarlo con precisión: una skill escrita sobre una base rota enseña pasos malos. Un asset faltante irrelevante para el arranque (un dir estático que la API nunca sirve, una config de ejemplo) puede crearse como scaffolding de verificación marcado y eliminarse en la limpieza.
+* **Paso 2, generar la skill:** escribir `.cursor/skills/verify-<app>/SKILL.md` con frontmatter YAML (`name: verify-<app>` y una `description` que nombre la app, la surface y cuándo acudir a ella; sin frontmatter la skill nunca se registra) y seis secciones aterrizadas en lo que la entrevista encontró de verdad, sin placeholders: **Launch** (el comando exacto que arranca la app para verificar y cómo saber que está lista: una línea de log, un prompt; lista significa usable, no solo que un proceso responde, porque un health check de DB puede pasar mientras sus init scripts siguen corriendo; incluye teardown; para un CLI o TUI de vida corta no hay servidor que mantener: lanzar es compilar el binario o instalar deps una vez y abrir cada manejo en su propia sesión PTY o tmux aislada), **Doctor** (un chequeo de solo lectura que responde "¿vale la pena manejar esta instancia?": proceso arriba, versión o build correcta, puerto nuestro, auth válida; se corre primero cada vez que algo se ve raro), **Drive** (la receta del harness con selectores y comandos reales de este repo, no ejemplos; handles estables: labels ARIA, data attributes, strings de prompt, rutas, antes que coordenadas y orden de tab), **Evidence** (qué capturar para una prueba y a dónde va; el estándar: ejercitar el path real del usuario, no setters internos ni endpoints de test; capturar la acción y el estado resultante, no solo la pantalla final; verificar los efectos secundarios, archivos escritos, filas insertadas, mensajes enviados, junto a lo visible; mocks solo donde una frontera de producción ya aísla el sistema externo; si el camino seguro es un dry-run o modo test, verificar qué se salta observando, archivos, red, refs de git, no confiando en el nombre: hay dry-runs que tocan la red o abren un browser), **Cleanup** (cómo desmontar las instancias que la corrida creó; nunca matar por nombre de proceso, matar lo que uno arrancó; la limpieza remueve instancias y estado scratch, nunca la evidencia: los artefactos de prueba sobreviven al teardown en la ubicación que la skill nombra) y **Helpers** (todo script que la skill embarca es ejecutable y su invocación aparece en el cuerpo; un helper que obliga a ingeniería inversa no es un helper).
+* **Paso 3, sembrar el mapa de features:** crear `.cursor/skills/verify-<app>/features/README.md` más un archivo por feature de cara al usuario identificable (apuntar al top 3 a 5 para empezar, tomándolas de rutas, comandos, menús o docs), siguiendo la forma de `references/feature-map-example/`. Cada archivo responde desde el punto de vista del usuario: qué es la feature, cómo se llega a ella, cómo se maneja con el harness y qué estado final observable prueba que funciona. Los cuatro H2 son `Sub-features`, `How to get to it (user POV)`, `Driving it with <harness>` y `Gotchas`. Si el seed data carece de una precondición que un journey necesita, el journey reporta el fallo y la razón va en los `Gotchas` de esa feature; nunca se debilita el journey para que pase. El mapa es la fuente de verificación mantenida del repo: una prueba que maneja el entry point conveniente queda incompleta cuando el mapa lista otros.
+* **Paso 4, probar la skill generada antes de entregarla:** correr sus propias instrucciones de punta a punta una vez: launch, doctor, manejar UNA feature mapeada (con una basta; el mapa existe para que corridas siguientes cubran el resto), capturar evidencia, limpiar. Después de la limpieza, confirmar que la evidencia sigue existiendo en la ubicación nombrada: una limpieza que se come la prueba falla este paso. Arreglar lo que falla, y correr la limpieza generada tras cada iteración fallida también, para que los intentos rotos no dejen procesos y puertos abandonados. Si se probó en un stand-in del target real (un contenedor en lugar de una VM fresca, un stack local en lugar de uno remoto), listar cada paso de setup que el stand-in hizo y el target no: quedan sin verificar hasta que una corrida en el target real los cubra.
+* **Paso 5, ofrecer el loop de mantenimiento:** apuntar al usuario a `/maintain-verification-skill` para mantener el mapa honesto mientras la app cambia; sugerir una cadencia solo si la piden.
+
+---
+
+### 3. Relación con otros archivos
+
+* **[Prove It Works](/pstack/skills/principle-prove-it-works/)**: la disciplina es la misma, probar contra el artefacto real y no contra un self-report; aquí el artefacto es la app corriendo y la evidencia es lo capturado, no lo prometido.
+* `maintain-verification-skill` (aún no replicada, se cita sin enlace): el loop de mantenimiento que este generador deja sembrado al final.
+* `references/feature-map-example/` (aún no replicado, se cita sin enlace): los archivos de apoyo `README.md`, `create-note.md` y `search.md` que fijan la forma del mapa de features; se documentan aquí, dentro del doc de su skill padre, hasta su réplica.
+
+---
+
+### 4. Ejemplo breve
+
+Un repo de CLI sin tests de integración: la entrevista determina surface CLI/TUI, run `make dev`, drive por tmux/PTY y observación por exit codes más transcripción. La skill generada trae Launch (`make dev` con su línea de ready y teardown del PTY), Doctor (binario de la build correcta, puerto libre), Drive con los prompts reales, Evidence (transcript y el archivo que el comando escribe) y Cleanup (matar lo arrancado, conservar la evidencia), siembra cuatro features con sus gotchas, corre una de punta a punta con evidencia que sobrevive al teardown, y remite a `/maintain-verification-skill` para el mantenimiento.
