@@ -83,8 +83,8 @@ Meta:
 - [x] `skills/blast-radius/SKILL.md`
 - [x] `skills/figure-it-out/SKILL.md`
 - [x] `skills/create-verification-skill/SKILL.md`
-- [ ] `skills/create-verification-skill/references/feature-map-example/README.md`
-- [ ] `skills/create-verification-skill/references/feature-map-example/create-note.md`
+- [x] `skills/create-verification-skill/references/feature-map-example/README.md`
+- [x] `skills/create-verification-skill/references/feature-map-example/create-note.md`
 - [ ] `skills/create-verification-skill/references/feature-map-example/search.md`
 - [ ] `skills/maintain-verification-skill/SKILL.md`
 
